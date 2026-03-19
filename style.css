@@ -1,0 +1,268 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+.hero {
+width:100vw;
+height:100vh;
+background:#0C0319;
+position:relative;
+overflow: hidden;
+}
+
+.heroglass {
+
+width:99vw;
+height:99vh;
+position:absolute;
+top:0;
+bottom:0;
+right:0;
+left:0;
+margin:auto;
+background: rgba(255, 255, 255, 0);
+border-radius: 20px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+backdrop-filter: blur(0px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.16);
+overflow: hidden;
+display: flex;
+}
+
+/*..............nav bar...............*/
+
+.navbar {
+justify-content: center;
+position:fixed;
+top: 2%;
+left: 50%;
+transform: translateX(-50%);
+width:fit-content;
+display:flex;
+padding:15px 50px;
+
+
+}
+
+.nav-list {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-list > li > a {
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    font-weight: 200;
+}
+
+.navbar:hover {
+background: rgba(255, 255, 255, 0);
+border-radius: 30px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+backdrop-filter: blur(6.4px);
+-webkit-backdrop-filter: blur(6.4px);
+border: 1px solid rgba(255, 255, 255, 0.28);
+transition: all 0.4s ease;
+}
+
+.nav-list > li > a {
+    position: relative;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    font-weight: 300;
+}
+
+
+.nav-list > li > a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    color: rgba(255, 255, 255, 0.5);
+    width: 0%;
+    height: 2px;
+    background: white;
+    transform: translateX(-50%);
+    transition: width 0.5s ease;
+}
+
+.nav-list > li > a:hover{
+      color: #ffffff;
+          text-shadow:
+              0 0 5px rgba(255,255,255,0.8),
+              0 0 10px rgba(255,255,255,0.6),
+              0 0 15px rgba(255,255,255,0.4),
+              0 0 20px rgba(255,255,255,0.3);
+}
+
+
+.nav-list > li > a:hover::after{
+    width: 100%;
+}
+
+/*...........colorbox..............*/
+
+
+/*
+
+#colorbox1 {
+height:300px;
+width:300px;
+border-radius:50%;
+position:absolute;
+top:-150px;
+right:-150px;
+filter: blur(100px);
+background: linear-gradient(rgba(255, 0, 251, 0.5),rgba(0, 153, 255, 0.5));
+
+}
+
+#colorbox2 {
+height:300px;
+width:300px;
+border-radius:50%;
+position:absolute;
+bottom:-150px;
+right:-150px;
+filter: blur(100px);
+background: linear-gradient(rgba(255, 0, 251, 0.5),rgba(0, 153, 255, 0.5));
+}
+
+#colorbox3 {
+height:300px;
+width:300px;
+border-radius:50%;
+position:absolute;
+top:-150px;
+left:-150px;
+filter: blur(100px);
+background: linear-gradient(rgba(255, 0, 251, 0.5),rgba(0, 153, 255, 0.5));
+}
+*/
+
+/*
+#colorbox4 {
+height:400px;
+width:400px;
+position:absolute;
+bottom:10%;
+right:5%;
+filter: blur(150px);
+background: linear-gradient(rgba(255, 0, 251, 0.5),rgba(0, 153, 255, 0.5));
+}
+*/
+
+
+/*.............grid............*/
+.grid-box {
+    width: 60%;
+    height: 100%;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    pointer-events: none;
+
+
+    background-image:
+        linear-gradient(to right, rgba(138, 43, 226, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(138, 43, 226, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+
+
+    -webkit-mask-image: radial-gradient(circle at 70% 50%, black 30%, transparent 85%);
+    mask-image: radial-gradient(circle at 70% 50%, black 30%, transparent 85%);
+}
+
+.grid-box::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+
+    background-image:
+        linear-gradient(to right, rgba(138, 43, 226, 0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(138, 43, 226, 0.2) 1px, transparent 1px);
+    background-size: 50px 50px;
+
+    -webkit-mask-image: linear-gradient(to bottom,
+        transparent 0%,
+        black 15%,
+        black 25%,
+        transparent 40%);
+    mask-image: linear-gradient(to bottom,
+        transparent 0%,
+        black 15%,
+        black 25%,
+        transparent 40%);
+
+    -webkit-mask-size: 100% 300%;
+    mask-size: 100% 300%;
+
+    animation: gridFlow 5s linear infinite;
+}
+
+@keyframes gridFlow {
+    0% { mask-position: 0% -100%; }
+    100% { mask-position: 0% 200%; }
+}
+
+
+
+.Container{
+color:#ffffff;
+}
+
+.content > h1 {
+font-size:1.5rem;
+position:absolute;
+top:30%;;
+left:8%;
+}
+
+.dynamic-text{
+font-size:2rem;
+position:absolute;
+top:50%;
+left:8%;
+}
+
+@media (min-width: 1600px) {
+
+.content > h1 {
+font-size:2rem;
+position:absolute;
+top:20%;;
+left:8%;
+}
+
+.dynamic-text {
+  font-size:2.5rem;
+  position:absolute;
+  top:32%;
+  left:8%;
+  }
+}
+
+.content > p {
+ position:absolute;
+  top:60%;
+  left:8%;
+
+}
+
+
+
