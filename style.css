@@ -14,17 +14,20 @@ font-family: "Josefin Sans", sans-serif;
 }
 
 .hero {
-width:100vw;
+width:100%;
 height:100vh;
 background:#05000d;
 position:relative;
 overflow: hidden;
+display: flex;
+justify-content: center;
+
 }
 
 .heroglass {
 
-width:99vw;
-height:99vh;
+width:98vw;
+height:96vh;
 position:absolute;
 top:0;
 bottom:0;
@@ -39,7 +42,10 @@ backdrop-filter: blur(0px);
 border: 1px solid rgba(255, 255, 255, 0.16);
 overflow: hidden;
 display: flex;
+
 }
+
+
 
 /*..............nav bar...............*/
 
@@ -77,6 +83,11 @@ backdrop-filter: blur(6.4px);
 -webkit-backdrop-filter: blur(6.4px);
 border: 1px solid rgba(255, 255, 255, 0.28);
 transition: all 0.4s ease;
+
+border: 1px solid #8a2be2; /* දම් පාට Border එක */
+box-shadow: 0 0 15px rgba(138, 43, 226, 0.3),
+inset 0 0 10px rgba(138, 43, 226, 0.1); /* ඇතුළත සහ පිටත Glow එක */
+transform: translateX(-50%) scale(1.02);
 }
 
 .nav-list > li > a {
@@ -96,7 +107,7 @@ transition: all 0.4s ease;
     color: rgba(255, 255, 255, 0.5);
     width: 0%;
     height: 2px;
-    background: white;
+    background: #8a2be2;
     transform: translateX(-50%);
     transition: width 0.5s ease;
 }
@@ -104,10 +115,10 @@ transition: all 0.4s ease;
 .nav-list > li > a:hover{
       color: #ffffff;
           text-shadow:
-              0 0 20px rgba(255,255,255,0.8),
-              0 0 10px rgba(255,255,255,0.8),
-              0 0 15px rgba(255,255,255,0.8),
-              0 0 20px rgba(255,255,255,0.8);
+              0 0 20px rgba(255,255,255,0.5),
+              0 0 10px rgba(255,255,255,0.5),
+              0 0 15px rgba(255,255,255,0.5),
+              0 0 20px rgba(255,255,255,0.5);
 }
 
 
@@ -120,15 +131,16 @@ transition: all 0.4s ease;
 
 
 #colorbox1 {
-height:150px;
-width:150px;
-background: linear-gradient(180deg, #6a0dad 20%, #2e0580 100%);
-border-radius:50%;
-position:absolute;
-filter: blur(35px);
-animation: animateBlob 5s linear infinite;
-top: -3rem;
-left: -3rem;
+    height: 200px;
+    width: 200px;
+    background: linear-gradient(180deg, #8a2be2 50%, #4b0082 100%);
+    border-radius: 50%;
+    position: absolute;
+    filter: blur(50px);
+    animation: animateBlob 5s linear infinite;
+    top: -2rem;
+    left: -2rem;
+
 }
 
 @keyframes animateBlob{
@@ -196,68 +208,99 @@ left: -3rem;
     100% { mask-position: 0% 200%; }
 }
 
-.Container{
+
+.hero-content-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    z-index: 20;
+    width: fit-content;
+}
+
+
+
+.content {
+    display: flex;
+    flex-direction: column;
 color:#ffffff;
+}
+
+.jump-text {
+    display: inline-block; /* Animation එක වැඩ කරන්න නම් මේක අනිවාර්යයි */
+    animation: jump-animation 2s ease-in-out infinite;
+    color: #8a2be2; /* ඕන නම් මේකට විතරක් දම් පාට දෙන්න පුළුවන් */
+}
+
+/* උඩ පනින Animation එක */
+@keyframes jump-animation {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0); /* සාමාන්‍ය තැන */
+    }
+    40% {
+        transform: translateY(-15px); /* උඩට පනින උපරිම උස */
+    }
+    60% {
+        transform: translateY(-7px); /* දෙවැනි වරට පොඩ්ඩක් පනින උස */
+    }
 }
 
 .content > h1 {
 line-height:1.5;
-position:absolute;
-top:150px;;
-left:100px;
+font-size: 2rem;
 }
 
-.dynamic-text{
+.animated-text{
 font-size:3rem;
-font-weight:700 !important;
-position:absolute;
-top:260px;
-left:100px;
-font-family: 'Josefin Sans', sans-serif;
+font-weight:700;
+line-height:1.6;
 }
 
 .content > p {
-    line-height:1.5;
+
     font-size:1rem;
-    position:absolute;
-    top:320px;
-    left:100px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height:1.3;
 }
 
 .btn {
 display:flex;
 gap:20px;
-position:absolute;
-left:100px;
-top:480px;
+
 }
 
 .home_image {
     position: absolute;
     bottom: 0;
-    right: 100px;
+    right: 10%;
     height: 90%;
     width: auto;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     z-index: 10;
+
 }
+
+
 
 
 .home_image > .colorbox {
     width:100%;
-    height: 100%;
+    height: 80%;
     background: linear-gradient(180deg, #6a0dad 20%, #2e0580 100%);
-    border-radius: 100%;
+    border-radius: 50%;
     position: absolute;
     top: 50% ;
     left: 50% ;
     transform: translate(-50%, -50%);
-    filter: blur(70px);
+    filter: blur(80px);
     animation: animateBlob 5s linear infinite;
     z-index: -1;
-    display: block;
+    opacity: 0.7;
 }
 
 
@@ -266,7 +309,23 @@ top:480px;
     width: auto;
     object-fit: contain;
     z-index: 2;
-    position: relative;
+    animation: floatImage 4s ease-in-out infinite;
+
+
+}
+
+
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 
@@ -274,8 +333,51 @@ top:480px;
     0% { transform: translate(-50%, -50%) rotate(0deg); }
     100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
+
+
+.socials {
+    display: flex;
+    gap: 20px;
+
+}
+
+
+.social-link {
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 22px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+.social-link:hover {
+    background: #6a0dad;
+    color: #ffffff;
+    transform: translateY(-5px) scale(1);
+    border-color: #6a0dad;
+    box-shadow: 0 0 10px rgba(106, 13, 173, 0.6);
+    text-shadow: 0 0 10px white;
+
+}
+
+
+
 @media screen and (min-width: 1500px) {
 
+
+.hero-content-wrapper {
+        left: 10%;
+        gap: 40px;
+    }
 
 .nav-list > li > a {
        text-decoration: none;
@@ -287,39 +389,28 @@ top:480px;
 .content > h1 {
 line-height:1.5;
 font-size:3rem;
-position:absolute;
-top:200px;
-left:150px;
 }
 
-.dynamic-text {
+.animated-text {
   font-size:4.5rem;
-  position:absolute;
-  top:370px;
-  left:150px;
+
   }
 
 
 .content > p {
     font-size:1.5rem;
     line-height:1.5;
-    position:absolute;
-    top:470px;
-    left:150px;
     }
 
 .btn {
     display:flex;
-    gap:30px;
-    position:absolute;
-    top:700px;
-    left:150px;
+
     }
 
 .home_image {
         width: auto;
-        height: 80%;
-        right: 100px;
+        height: 90%;
+        right: 10%;
         bottom: 0;
     }
 
@@ -336,6 +427,12 @@ left:150px;
         height: 100%;
         width:auto;
     }
+
+        .social-link {
+            width: 55px;
+            height: 55px;
+            font-size: 26px;
+        }
 }
 
 
