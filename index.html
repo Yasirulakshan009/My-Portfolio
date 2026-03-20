@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../assets/lib/normalize.css">
     <link rel="stylesheet" href="style.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,9 +46,9 @@
 
                     <div class="content">
                         <h1><span class="jump-text">Hey,</span><br>I'm Yasiru Lakshan</h1>
-                        <h2 class="animated-text">
-                            <span>Software Engineer</span>
-                        </h2>
+                        <div class="animated-text">
+                            <span id="typing-text"></span><span class="cursor">|</span>
+                        </div>
                         <p>A motivated Full-Stack Developer in the making, focused on<br>
                             building modern responsive, and user-friendly <br>
                             web applications.
@@ -63,18 +64,24 @@
                     </div>
 
                     <div class="btn">
-                        <button id="download">Download CV</button>
-                        <button id="hire-me">Hire Me</button>
-                    </div>
+                        <a href="" download id="download" class="main-btn cv-btn">
+                            Download CV <i class="fa-solid fa-download"></i>
+                        </a>
 
-                </div> <div class="home_image">
-                <div class="colorbox"></div>
-                <img src="assest/pictures/myPicture.png" alt="Yasiru Lakshan" class="home__perfil">
-            </div>
+                        <a href="" class="main-btn project-btn">
+                            View Projects <i class="fa-solid fa-code"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="home_image">
+                    <div class="colorbox"></div>
+                    <img src="assest/pictures/myPicture.png" alt="Yasiru Lakshan" class="home__perfil">
+                </div>
             </div>
         </section>
-
     </section>
 </section>
+
+<script src="javaScript.js"></script>
 </body>
 </html>
