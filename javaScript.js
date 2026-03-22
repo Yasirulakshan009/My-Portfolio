@@ -1,5 +1,5 @@
 const textElement = document.getElementById("typing-text");
-const words = ["Undergraduate Student","Web Developer", "UI/UX Designer", "Frontend Developer"];
+const words = ["Web Developer", "UI/UX Designer", "Frontend Developer"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -30,5 +30,27 @@ function type() {
 
     setTimeout(type, typeSpeed);
 }
-
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 document.addEventListener("DOMContentLoaded", type);
+
+window.addEventListener("scroll", function() {
+    const navbar = document.querySelector(".navbar");
+    const sections = document.querySelectorAll("section");
+    let isAtTop = false;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const scrollPosition = window.scrollY;
+
+
+        if (scrollPosition >= sectionTop - 10 && scrollPosition <= sectionTop + 10) {
+            isAtTop = true;
+        }
+    });
+
+    if (isAtTop || window.scrollY < 10) {
+        navbar.classList.remove("scrolled");
+    } else {
+        navbar.classList.add("scrolled");
+    }
+});
