@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/lib/normalize.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
@@ -24,7 +25,7 @@
             <ul class="nav-list">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="">Skills</a></li>
+                <li><a href="#skill">Skills</a></li>
                 <li><a href="">Education</a></li>
                 <li><a href="">Projects</a></li>
                 <li><a href="">Contact</a></li>
@@ -34,7 +35,7 @@
 <!--  |||||||||||||||||||||||||||||||||||||||||||||||||||home section|||||||||||||||||||||||||||||||||||||||||||||||||  -->
     <section class="hero-section" id="hero">
         <section class="heroglass">
-            <div id="colorbox1"></div>
+            <div class="blob-style"></div>
             <div class="grid-box"></div>
             <div class="Container">
                 <div class="hero-content-wrapper">
@@ -69,7 +70,6 @@
                 <div class="home_image">
                     <div class="colorbox"></div>
                     <img src="assest/pictures/myPicture.png" alt="Yasiru Lakshan" class="home-profile">
-                    <div class="image-color"></div>
                 </div>
             </div>
         </section>
@@ -85,7 +85,7 @@
                 </div>
             </div>
             <div class="about-content">
-                <h1 class="about-title">ABOUT <span class="jump-text">ME</span></h1>
+                <h1 class="title">ABOUT <span class="jump-text">ME</span></h1>
                 <p class="about-description">
                     I am an <b>undergraduate student</b> pursuing a Diploma in Software<br>
                     Engineering with experience in software development and web <br>
@@ -100,6 +100,120 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!--  |||||||||||||||||||||||||||||||||||||||||||||||||||Skill section|||||||||||||||||||||||||||||||||||||||||||||||||  -->
+
+    <section class="skill-section" id="skill">
+
+        <div class="skill-glass">
+            <div id="skill-colorbox1"></div>
+            <div class="skill-container">
+                <div class="heading">
+                    <h1 class="title">MY <span class="jump-text">SKILLS</span></h1>
+                    <h1 class="topic1">Technologies | <span class="topic2">Work With</span></h1>
+                </div>
+
+                <div class="skill-content-wrapper">
+
+                    <div class="orbit-system">
+
+                        <div class="core"><span>SKILLS</span></div>
+
+                        <div class="orbit orbit1">
+                            <span class="icon1"><i class="devicon-html5-plain "></i></span>
+                            <span class="icon2"><i class="devicon-css3-plain "></i></span>
+                        </div>
+
+                        <div class="orbit orbit2">
+                            <span class="icon1"><i class="devicon-javascript-plain "></i></span>
+                            <span class="icon2"><i class="devicon-java-plain "></i></span>
+                        </div>
+
+                        <div class="orbit orbit3">
+                            <span class="icon1"><i class="devicon-figma-plain "></i></span>
+                            <span class="icon2"><i class="devicon-mysql-original "></i></span>
+                        </div>
+                    </div>
+                    <div class="glass-cards-wrapper" id="cards-right">
+                        <!--||||||||||||||||||||||||||||||||||||||||||||||||-->
+                        <div class="skill-box" id="progress-bars-card">
+                            <div class="bar-grid">
+                                <div class="skill-bar">
+                                    <span class="title">HTML</span>
+                                    <div class="bar"></div>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="title">CSS</span>
+                                    <div class="bar"></div>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="title">JS</span>
+                                    <div class="bar"></div>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="title">JAVA</span>
+                                    <div class="bar"></div>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="title">MY SQL</span>
+                                    <div class="bar"></div>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="title">FIGMA</span>
+                                    <div class="bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--||||||||||||||||||||||||||||||||||||||||||||||||-->
+                        <div class="small-crd-grid">
+                            <div class="skill-box" id="frontend">
+                                <h2 class="box-title">Frontend Development</h2>
+                                <h3 class="box-description">Html, Css, Js</h3>
+                            </div>
+
+                            <div class="skill-box" id="backend">
+                                <h2 class="box-title">Backend Development</h2>
+                                <h3 class="box-description">Java, My Sql</h3>
+                            </div>
+
+                            <div class="skill-box" id="design">
+                                <h2 class="box-title">UI/UX Design</h2>
+                                <h3 class="box-description">Figma</h3>
+                            </div>
+                        </div>
+                        <!--||||||||||||||||||||||||||||||||||||||||||||||||-->
+                        <div class="status-crd-grid">
+                            <div class="skill-box" id="tech">
+                                <h3 class="box-description">5+</h3>
+                                <h2 class="box-title">Technologies</h2>
+                            </div>
+
+                            <div class="skill-box" id="project">
+                                <h3 class="box-description">2+</h3>
+                                <h2 class="box-title">Projects</h2>
+                            </div>
+
+                            <div class="skill-box" id="learning">
+                                <h3 class="box-description">1+</h3>
+                                <h2 class="box-title">Years Learning</h2>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!--|||||||||||||||||||||||||||||||||||education section|||||||||||||||||||||||||||||||||||||||||||||||||||-->
+
+    <section class="education-section">
+
+
     </section>
 </section>
 
