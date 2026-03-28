@@ -1288,7 +1288,7 @@ color:#8a2be2;
 
 .project-section{
 width:100%;
-height:1300px;
+height:1100px;
 background:black;
 position:relative;
 display:flex;
@@ -1322,17 +1322,18 @@ overflow:hidden;
     position: absolute;
     filter: blur(50px);
     animation: project-Blob 5s linear infinite;
+    z-index:0;
 
 }
 
 #project-colorbox1{
-top:-100px;
-left:-100px;
+top:-120px;
+left:-120px;
 }
 
 #project-colorbox2{
-top:-100px;
-right:-100px;
+top:-120px;
+right:-120px;
 
 }
 
@@ -1355,6 +1356,14 @@ right:-100px;
     justify-content: space-between;
     padding: 80px;
     box-sizing: border-box;
+}
+
+.middle-content {
+margin-top:30px;
+}
+
+.middle-content > .heading {
+padding-bottom:80px;
 }
 
 .project-display {
@@ -1431,14 +1440,12 @@ scale:0.8;
 }
 
 .project-image:hover ~.top-left {
-
     transform: translate(-190%, -150%);
     opacity: 1;
 }
 
 
 .project-image:hover ~.top-right {
-
     transform: translate(90%, -150%);
     opacity: 1;
 
@@ -1455,6 +1462,7 @@ scale:0.8;
     transform: translate(90%, 50%);
     opacity: 1;
 }
+
 
 
 
