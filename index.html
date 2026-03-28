@@ -26,8 +26,8 @@
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skill">Skills</a></li>
-                <li><a href="">Education</a></li>
-                <li><a href="">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="">Contact</a></li>
             </ul>
         </section>
@@ -38,7 +38,7 @@
             <div class="blob-style"></div>
             <div class="grid-box"></div>
             <div class="Container">
-                <div class="hero-content-wrapper">
+                <main class="hero-content-wrapper">
                     <div class="content">
                         <h1><span class="jump-text">Hey,</span><br>I'm Yasiru Lakshan</h1>
                         <div class="animated-text">
@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="btn">
-                        <a href="" download id="download" class="main-btn cv-btn">
+                        <a href="" id="download" class="main-btn cv-btn">
                             Download CV <i class="fa-solid fa-download"></i>
                         </a>
 
@@ -66,7 +66,7 @@
                             View Projects <i class="fa-solid fa-code"></i>
                         </a>
                     </div>
-                </div>
+                </main>
                 <div class="home_image">
                     <div class="colorbox"></div>
                     <img src="assest/pictures/myPicture.png" alt="Yasiru Lakshan" class="home-profile">
@@ -84,7 +84,7 @@
                     <img src="assest/pictures/myPicture.png" alt="About Me">
                 </div>
             </div>
-            <div class="about-content">
+            <main class="about-content">
                 <h1 class="title">ABOUT <span class="jump-text">ME</span></h1>
                 <p class="about-description">
                     I am an <b>undergraduate student</b> pursuing a Diploma in Software<br>
@@ -98,7 +98,7 @@
                         Download CV <i class="fa-solid fa-download"></i>
                     </a>
                 </div>
-            </div>
+            </main>
         </div>
     </section>
 
@@ -106,7 +106,7 @@
 
     <section class="skill-section" id="skill">
 
-        <div class="skill-glass">
+        <section class="skill-glass">
             <div id="skill-colorbox1"></div>
             <div class="skill-container">
                 <div class="heading">
@@ -114,29 +114,29 @@
                     <h1 class="topic1">Technologies | <span class="topic2">Work With</span></h1>
                 </div>
 
-                <div class="skill-content-wrapper">
+                <main class="skill-content-wrapper">
 
                     <div class="orbit-system">
 
                         <div class="core"><span>SKILLS</span></div>
 
                         <div class="orbit orbit1">
-                            <span class="icon1"><i class="devicon-html5-plain "></i></span>
-                            <span class="icon2"><i class="devicon-css3-plain "></i></span>
+                            <span class="icon frontend-icon" id="icon1"><i class="devicon-html5-plain "></i></span>
+                            <span class="icon frontend-icon" id="icon2"><i class="devicon-css3-plain "></i></span>
                         </div>
 
                         <div class="orbit orbit2">
-                            <span class="icon1"><i class="devicon-javascript-plain "></i></span>
-                            <span class="icon2"><i class="devicon-java-plain "></i></span>
+                            <span class="icon frontend-icon" id="icon3"><i class="devicon-javascript-plain "></i></span>
+                            <span class="icon backend-icon" id="icon4"><i class="devicon-java-plain "></i></span>
                         </div>
 
                         <div class="orbit orbit3">
-                            <span class="icon1"><i class="devicon-figma-plain "></i></span>
-                            <span class="icon2"><i class="devicon-mysql-original "></i></span>
+                            <span class="icon design-icon" id="icon5"><i class="devicon-figma-plain "></i></span>
+                            <span class="icon backend-icon" id="icon6"><i class="devicon-mysql-original "></i></span>
                         </div>
                     </div>
                     <div class="glass-cards-wrapper" id="cards-right">
-                        <!--||||||||||||||||||||||||||||||||||||||||||||||||-->
+                        <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
                         <div class="skill-box" id="progress-bars-card">
                             <div class="bar-grid">
                                 <div class="skill-bar">
@@ -165,7 +165,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!--||||||||||||||||||||||||||||||||||||||||||||||||-->
+                        <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
                         <div class="small-crd-grid">
                             <div class="skill-box" id="frontend">
                                 <h2 class="box-title">Frontend Development</h2>
@@ -182,7 +182,7 @@
                                 <h3 class="box-description">Figma</h3>
                             </div>
                         </div>
-                        <!--||||||||||||||||||||||||||||||||||||||||||||||||-->
+                        <!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
                         <div class="status-crd-grid">
                             <div class="skill-box" id="tech">
                                 <h3 class="box-description">5+</h3>
@@ -202,18 +202,126 @@
 
                     </div>
 
-                </div>
+                </main>
 
             </div>
 
-        </div>
+        </section>
 
     </section>
     <!--|||||||||||||||||||||||||||||||||||education section|||||||||||||||||||||||||||||||||||||||||||||||||||-->
 
-    <section class="education-section">
+    <section class="education-section" id="education">
+
+        <div class="education-container">
+            <div class="heading">
+                <h1 class="title">MY <span class="jump-text">EDUCATION</span></h1>
+            </div>
+
+            <main class="education-content-wrapper">
+                <div class="e-card" id="c1">
+                        <div class="card-top-section">
+                            <div class="date-card">
+                                <h1 class="c-date">2025 - Present</h1>
+                            </div>
+                            <div class="icon-card">
+                                <span><i class="ri-graduation-cap-fill"></i></span>
+                            </div>
+                        </div>
+                        <h2 class="c-path">Higher National Diploma (HND) In Software Engineering</h2>
+                        <h3 class="c-place">Institute Of Software Engineering<br>(IJSE)</h3>
+
+                </div>
+
+                <div class="e-card" id="c2">
+                        <div class="card-top-section">
+                            <div class="date-card">
+                                <h1 class="c-date">2022 - 2024</h1>
+                            </div>
+                            <div class="icon-card">
+                                <span><i class="ri-school-fill"></i></span>
+                            </div>
+                        </div>
+                        <h2 class="c-path">G.C.E Advanced Level Education <br>(A/L)</h2>
+                        <h3 class="c-place">Bandaragama Central College<br>(BCC)</h3>
+
+                </div>
+
+                <div class="e-card" id="c3">
+                        <div class="card-top-section">
+                            <div class="date-card">
+                                <h1 class="c-date">2011 - 2022</h1>
+                            </div>
+                            <div class="icon-card">
+                                <span><i class="ri-school-fill"></i></span>
+                            </div>
+                        </div>
+                        <h2 class="c-path">G.C.E Ordinary Level Education <br>(O/L)</h2>
+                        <h3 class="c-place">Pathahawaththa College<br>(PSSC)</h3>
+
+                </div>
+            </main>
+        </div>
+
+    </section>
+
+    <!--||||||||||||||||||||||||||||||||project section||||||||||||||||||||||||||||||||||||||||||||-->
+
+    <section class="project-section" id="projects">
+        <section class="project-glass">
+            <div class="project-colorbox" id="project-colorbox1"></div>
+            <div class="project-colorbox" id="project-colorbox2"></div>
+            <main class="main-container">
+
+                <div class="heading">
+                    <h1 class="title">My <span class="jump-text">Projects</span></h1>
+                </div>
+
+                <div class="middle-content">
+                    <div class="project-display">
+                        <div class="project-image">
+                            <img src="assest/pictures/overview.png" alt="Cabs Rental System">
+                        </div>
+
+                        <div class="sub-image top-left"><img src="assest/pictures/login.png" alt="Login"><span>Login</span></div>
+                        <div class="sub-image top-right"><img src="assest/pictures/customer.png" alt="Customer"><span>Customer</span></div>
+                        <div class="sub-image bottom-left"><img src="assest/pictures/rental.png" alt="Rental"><span>Rental</span></div>
+                        <div class="sub-image bottom-right"><img src="assest/pictures/changepassword.png" alt="Password"><span>Change Password</span></div>
+
+                        <div class="rotate-circle"></div>
+                    </div>
+                </div>
+
+                <div class="bottom-content">
+                    <div class="left-content">
+                        <h2 class="project-title">Cabs Rental Management System</h2>
+                        <div class="use-skill">
+                            <span class="skill-tag java-fx">JavaFX</span>
+                            <span class="skill-tag java">Java</span>
+                        </div>
+                        <div class="git-btn">
+                            <a href="" class="git-btn">View On GitHub</a>
+                        </div>
+                    </div>
+
+                    <div class="slide-btn">
+                        <a href="" class="right-slide-btn"><i class="ri-arrow-right-long-fill"></i></a>
+                        <a href="" class="left-slide-btn"><i class="ri-arrow-left-long-fill"></i></a>
+                    </div>
+
+                    <div class="right-content">
+                        <P>A complete Cab Service Management System<br>
+                            designed to efficiently manage cab bookings,<br>
+                            vehicles, customers, and rental income through<br>
+                            a clean and user-friendly interface.</P>
+                    </div>
+                </div>
+
+            </main>
 
 
+
+        </section>
     </section>
 </section>
 
