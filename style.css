@@ -46,7 +46,6 @@ background: rgba(5, 0, 13, 0.4);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 overflow: hidden;
 display: flex;
@@ -58,13 +57,13 @@ display: flex;
 /*..............nav bar...............*/
 
 .navbar {
-justify-content: center;
 position:fixed;
 top: 4%;
 left: 50%;
 transform: translateX(-50%);
 width:fit-content;
 display:flex;
+justify-content: center;
 padding:15px 50px;
 border: 1px solid rgba(255, 255, 255, 0);
 border-radius: 30px;
@@ -81,12 +80,7 @@ transition: all 0.4s ease;
     list-style: none;
 }
 
-.nav-list > li > a {
-    text-decoration: none;
-    font-size: 16px;
-    color: white;
-    font-weight: 200;
-}
+
 
 .navbar.scrolled {
     background: rgba(5, 0, 13, 0.8);
@@ -110,7 +104,6 @@ backdrop-filter: blur(6.4px);
 -webkit-backdrop-filter: blur(6.4px);
 border: 1px solid rgba(255, 255, 255, 0.28);
 transition: all 0.4s ease;
-
 border: 1px solid #8a2be2;
 box-shadow: 0 0 15px rgba(138, 43, 226, 0.3),
 inset 0 0 10px rgba(138, 43, 226, 0.1);
@@ -122,7 +115,7 @@ transform: translateX(-50%) scale(1.02);
     text-decoration: none;
     font-size: 16px;
     color: white;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 
@@ -141,11 +134,7 @@ transform: translateX(-50%) scale(1.02);
 
 .nav-list > li > a:hover{
       color: #ffffff;
-          text-shadow:
-              0 0 20px rgba(255,255,255,0.5),
-              0 0 10px rgba(255,255,255,0.5),
-              0 0 15px rgba(255,255,255,0.5),
-              0 0 20px rgba(255,255,255,0.5);
+      text-shadow:0 0 20px rgba(255,255,255,0.5);
 }
 
 
@@ -212,21 +201,20 @@ transform: translateX(-50%) scale(1.02);
         linear-gradient(to bottom, rgba(138, 43, 226, 0.8) 1px, transparent 1px);
     background-size: 50px 50px;
 
-    -webkit-mask-image: linear-gradient(to bottom,
-        transparent 0%,
-        black 15%,
-        black 25%,
-        transparent 40%);
-    mask-image: linear-gradient(to bottom,
-        transparent 0%,
-        black 15%,
-        black 25%,
-        transparent 40%);
+    -webkit-mask-image:
+        linear-gradient(to bottom, transparent 0%, black 15%, black 25%, transparent 40%),
+        radial-gradient(circle at 70% 50%, black 30%, transparent 85%);
+    mask-image:
+        linear-gradient(to bottom, transparent 0%, black 15%, black 25%, transparent 40%),
+        radial-gradient(circle at 70% 50%, black 30%, transparent 85%);
 
-    -webkit-mask-size: 100% 300%;
-    mask-size: 100% 300%;
+    -webkit-mask-size: 100% 300%, 100% 100%;
+    mask-size: 100% 300%, 100% 100%;
 
-    animation: gridFlow 4s linear infinite;
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+
+    animation: gridFlow 5s linear infinite;
 }
 
 @keyframes gridFlow {
@@ -267,7 +255,7 @@ transform: translateX(-50%) scale(1.02);
         transform: translateY(0);
     }
     40% {
-        transform: translateY(-15px);
+        transform: translateY(-20px);
     }
     60% {
         transform: translateY(-7px);
@@ -318,7 +306,7 @@ font-size: 2rem;
     gap: 20px;
 }
 
-/* ===== GLASS BUTTON BASE ===== */
+/*|||||||||||||||||||| main btn |||||||||||||||||||*/
 .main-btn {
     text-decoration: none;
     display: inline-flex;
@@ -330,10 +318,8 @@ font-size: 2rem;
     border-radius: 14px;
     font-weight: 500;
     font-size: 0.85rem;
-    cursor: pointer;
     position: relative;
     overflow: hidden;
-
 
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
@@ -374,7 +360,6 @@ font-size: 2rem;
     left: -100%;
     width: 100%;
     height: 100%;
-
     background: linear-gradient(
         120deg,
         transparent,
@@ -796,10 +781,6 @@ color: #fff;
     inset: 0;
     border-radius: 50%;
     border: 2px solid white;
-
-
-
-
     -webkit-mask-composite: source-in;
     mask-composite: intersect;
     z-index: 1;
@@ -881,7 +862,7 @@ color: #fff;
     font-size: 1.8rem;
     animation: inherit;
     animation-direction: reverse;
-        z-index: 2;
+    z-index: 2;
 }
 
 
@@ -1116,7 +1097,7 @@ color:#aaa;
 /* --- Frontend Hover --- */
 .skill-content-wrapper:has(#frontend:hover) .icon:not(.frontend-icon) {
     filter: grayscale(100%);
-    opacity: 0.3;
+    opacity: 0.1;
 }
 
 .skill-content-wrapper:has(#frontend:hover) .icon.frontend-icon {
@@ -1128,7 +1109,7 @@ color:#aaa;
 /* --- Backend Hover --- */
 .skill-content-wrapper:has(#backend:hover) .icon:not(.backend-icon) {
     filter: grayscale(100%);
-    opacity: 0.3;
+    opacity: 0.1;
 }
 
 .skill-content-wrapper:has(#backend:hover) .icon.backend-icon {
@@ -1140,7 +1121,7 @@ color:#aaa;
 /* --- UI/UX Hover --- */
 .skill-content-wrapper:has(#design:hover) .icon:not(.design-icon) {
     filter: grayscale(100%);
-    opacity: 0.3;
+    opacity: 0.1;
 }
 
 .skill-content-wrapper:has(#design:hover) .icon.design-icon {
@@ -1288,7 +1269,7 @@ color:#8a2be2;
 
 .project-section{
 width:100%;
-height:1100px;
+height:950px;
 background:black;
 position:relative;
 display:flex;
@@ -1461,6 +1442,34 @@ scale:0.8;
 .project-image:hover ~.bottom-right {
     transform: translate(90%, 50%);
     opacity: 1;
+}
+
+.bottom-content {
+width:100%;
+height:auto;
+display:flex;
+position:relative;
+
+}
+
+.right-content {
+    width:fit-content;
+    height:auto;
+    position:absolute;
+    right:0;
+    bottom:2%;
+    line-height:1.6rem;
+    font-size:1.1rem;
+
+}
+
+.left-content {
+    width:fit-content;
+    height:auto;
+    position:absolute;
+    left:0;
+    bottom:2%;
+    line-height:2rem;
 }
 
 
