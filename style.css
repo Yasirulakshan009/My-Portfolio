@@ -1737,16 +1737,46 @@ left:50%;
     background: #000;
     position: relative;
     display:flex;
-    justify-content: flex-end;
+    justify-content:space-between;
     align-items: center;
-    padding: 100px 10%;
+    padding: 80px 10%;
 
+}
+
+.contact-main-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap:50px;
+    margin-top: 100px;
+}
+
+.contact-main-container > .heading{
+
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    z-index: 10
 }
 
 
 .contact-right{
-    width: 550px;
+    flex:1;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.contact-left{
+    flex:1;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .contact-details{
@@ -1759,7 +1789,9 @@ left:50%;
     border: 1px solid rgba(255, 255, 255, 0.20);
     border-bottom: 5px solid rgba(255, 255, 255, 0.1);
     padding: 40px;
+    margin:0;
     width:100%;
+    max-width: 500px;
 }
 
 .input-group {
@@ -1842,11 +1874,41 @@ left:50%;
 .input-group > input:focus,
 .input-group > textarea:focus {
 
-    background-color: rgba(138, 43, 226, 0.1);
+    background-color: rgba(138, 43, 226, 0.15);
     border: 1px solid #8a2be2;
+    box-shadow: 0 0 10px #8a2be2;
 }
 
+#send-btn{
+    font-weight:300;
+    font-size:0.8rem;
+    width: 100%;
+}
 
+.contact-left > .contact-title{
+    font-size:2rem;
+    text-align: center;
+    margin-top:20px ;
+    background: linear-gradient(
+            to right,
+            #8a2be2 20%,
+            #ff00ff 40%,
+            #ff00ff 60%,
+            #8a2be2 80%
+    );
+
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textColor 3s linear infinite;
+}
+
+.contact-left > img {
+    width:50%;
+    height:50%;
+    margin-top:50px ;
+}
 
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
@@ -1877,7 +1939,9 @@ font-size:3rem;
 
 
 
-    .content > .animated-text { height: 6rem; }
+    .content > .animated-text {
+        height: 6rem;
+    }
     .content > .animated-text > ol > li {
         height: 6rem;
         line-height: 6rem;
@@ -1886,11 +1950,21 @@ font-size:3rem;
         font-size: 4.5rem;
     }
     @keyframes slide-up {
-        0%, 20% { transform: translateY(0); }
-        25%, 45% { transform: translateY(-6rem); }
-        50%, 70% { transform: translateY(-12rem); }
-        75%, 95% { transform: translateY(-18rem); }
-        100% { transform: translateY(0); }
+        0%, 20% {
+            transform: translateY(0);
+        }
+        25%, 45% {
+            transform: translateY(-6rem);
+        }
+        50%, 70% {
+            transform: translateY(-12rem);
+        }
+        75%, 95% {
+            transform: translateY(-18rem);
+        }
+        100% {
+            transform: translateY(0);
+        }
     }
 
 .content > p {
