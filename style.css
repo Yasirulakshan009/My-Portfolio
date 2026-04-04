@@ -1712,9 +1712,9 @@ filter: drop-shadow(0 0 4px white);
 
 .project-glass > .main-colorbox{
 
-position:absolute;
-top:50%;
-left:50%;
+    position:absolute;
+    top:50%;
+    left:50%;
     height:400px;
     width:400px;
     background: linear-gradient(180deg, #6a0dad 20%, #2e0580 100%);
@@ -1814,7 +1814,7 @@ left:50%;
 
     width: 100%;
     padding: 15px;
-    background: rgba(0, 0, 0, 0.8);
+    background: #000000;
     border-radius: 12px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(11.4px);
@@ -1911,6 +1911,7 @@ left:50%;
     align-items: center;
     gap: 30px;
     justify-content: flex-start;
+    position: relative;
 
 }
 
@@ -1921,6 +1922,9 @@ left:50%;
     align-self: center;
     margin-top: 20px;
     margin-bottom: 20px ;
+    transition: transform 0.2s ease;
+    z-index: 2;
+
 }
 
 .icon-circle{
@@ -1962,10 +1966,6 @@ left:50%;
     margin-bottom: 25px;
 }
 
-.main-direct-contact {
-    display: flex;
-    gap:10px;
-}
 
 #contact-socials {
     display: flex;
@@ -2006,10 +2006,46 @@ left:50%;
     border-color: #000000;
 }
 
+
 #linkin-contact:hover {
     background: linear-gradient(to bottom, #007bff, #001aff);
     border-color: #001aff;
 }
+
+.main-direct-contact {
+    display: flex;
+    gap: 10px;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    align-items: center;
+}
+
+.main-direct-contact:hover {
+    transform: scale(1.05);
+}
+
+.image-social-wrapper > #robo-colorbox{
+
+    position:absolute;
+    top:50%;
+    left:60%;
+    height:250px;
+    width:250px;
+    background: linear-gradient(180deg, #6a0dad 20%, #2e0580 100%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(70px);
+    animation: animateBlob 5s linear infinite;
+    z-index: 1;
+
+}
+
+.image-social-wrapper > img:hover {
+    transform: scale(1.06);
+
+}
+
+
 
 
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
