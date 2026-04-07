@@ -2325,4 +2325,119 @@ font-size:3rem;
 
 }
 
+@media screen and (max-width: 576px) {
+
+    .hero-section {
+        height: auto;
+        flex-direction: column;
+        padding-top: 100px;
+    }
+
+    /* navbar */
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .nav-list {
+        gap: 20px;
+    }
+
+    .nav-list > li > a {
+        font-size: 14px;
+    }
+
+    /* hero content */
+    .hero-content-wrapper {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: none;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* text sizes */
+    #typing-text, .cursor {
+        font-size: 2rem;
+    }
+
+    .content > h1 {
+        font-size: 1.5rem;
+    }
+
+    .content > p {
+        font-size: 0.9rem;
+    }
+
+    /* image */
+    .home_image {
+        position: relative;
+        right: 0;
+        height: 300px;
+        margin-top: 40px;
+    }
+
+    /* buttons */
+    .btn {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* ABOUT */
+    .about-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .about-circle {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* SKILL */
+    .skill-content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .orbit-system {
+        transform: scale(0.7);
+    }
+
+    /* PROJECT */
+    .project-section {
+        height: auto;
+        padding: 50px 0;
+    }
+
+    .main-container {
+        padding: 20px;
+    }
+
+    .project-image {
+        width: 90%;
+        height: 200px;
+    }
+
+    .bottom-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .left-content, .right-content {
+        width: 100%;
+    }
+
+    /* CONTACT */
+    .contact-main-container {
+        flex-direction: column;
+    }
+
+    .contact-details {
+        min-width: unset;
+        width: 100%;
+    }
+
+}
+
 
