@@ -1434,6 +1434,7 @@ padding-bottom:80px;
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: none;
 
 }
 
@@ -1749,6 +1750,7 @@ filter: drop-shadow(0 0 4px white);
 .project-display.active {
     display: flex;
     opacity: 1;
+    pointer-events: all;
 
 }
 
