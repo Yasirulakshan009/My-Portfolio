@@ -54,4 +54,39 @@ window.addEventListener("scroll", function() {
         navbar.classList.add("scrolled");
     }
 });
+/*|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
+document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".project-display");
+    const leftContents = document.querySelectorAll(".left-content");
+    const rightContents = document.querySelectorAll(".right-content");
+    const nextBtn = document.querySelector(".right-slide-btn");
+    const prevBtn = document.querySelector(".left-slide-btn");
+
+    let currentIndex = 0;
+
+    function updateSlide(index) {
+        slides.forEach(s => s.classList.remove("active"));
+        leftContents.forEach(l => l.classList.remove("active"));
+        rightContents.forEach(r => r.classList.remove("active"));
+
+        if (index >= slides.length) currentIndex = 0;
+        if (index < 0) currentIndex = slides.length - 1;
+
+        slides[currentIndex].classList.add("active");
+        leftContents[currentIndex].classList.add("active");
+        rightContents[currentIndex].classList.add("active");
+    }
+
+    nextBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        currentIndex++;
+        updateSlide(currentIndex);
+    });
+
+    prevBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        currentIndex--;
+        updateSlide(currentIndex);
+    });
+});
