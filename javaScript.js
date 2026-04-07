@@ -66,13 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0;
 
     function updateSlide(index) {
-        if (index >= slides.length) index = 0;
-        if (index < 0) index = slides.length - 1;
-        currentIndex = index; // important
-
         slides.forEach(s => s.classList.remove("active"));
         leftContents.forEach(l => l.classList.remove("active"));
         rightContents.forEach(r => r.classList.remove("active"));
+
+        if (index >= slides.length) currentIndex = 0;
+        if (index < 0) currentIndex = slides.length - 1;
 
         slides[currentIndex].classList.add("active");
         leftContents[currentIndex].classList.add("active");
