@@ -567,7 +567,7 @@ font-size: 2rem;
 }
 
 .about-description > b {
-    color: #ffffff;
+    color: #a367ff;
     font-weight: 700;
     font-size:1.3rem;
 }
@@ -2438,9 +2438,9 @@ font-size:3rem;
     }
 
     .content > p {
-        font-size: 0.85rem;
-        text-align: center;
+        font-size: 0.9rem;
         margin-top: 10px;
+
     }
 
     .grid-box {
@@ -2449,6 +2449,48 @@ font-size:3rem;
         position: absolute;
         top:50px;
 
+    }
+
+    /*|||||||||||||||||||||||||about me ||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        gap: 50px;
+    }
+
+    .about-description {
+        line-height: 2.3rem;
+        font-size: 1.1rem;
+        text-wrap: balance;
+        text-align: center;
+
+    }
+
+    .about-description > b {
+        font-size:1.3rem;
+    }
+
+    .about-content > .btn {
+        align-self: center;
+
+    }
+
+    .about-circle {
+        width: 50vw;
+        height: 50vw;
     }
 
 
