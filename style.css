@@ -2493,6 +2493,91 @@ font-size:3rem;
         height: 50vw;
     }
 
+    /*||||||||||||||||||||||||||||||skill section|||||||||||||||||||||||||||||||||||*/
+
+    .skill-glass {
+        padding-top: 10%;
+        padding-bottom: 20px;
+    }
+
+    .skill-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .orbit-system {
+        width: 320px ;
+        height: 320px ;
+        transform: scale(0.9);
+    }
+
+    .orbit1 {
+        width: 120px;
+        height: 120px;
+    }
+    .orbit2 {
+        width: 230px;
+        height: 230px;
+    }
+    .orbit3 {
+        width: 330px;
+        height: 330px;
+    }
+
+    .core {
+        width: 60px;
+        height: 60px;
+        font-size: 0.6rem;
+    }
+
+    .icon-wrapper > .icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+
+    .glass-cards-wrapper {
+        width: 90% !important;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Cards වල Margin හදනවා */
+    #progress-bars-card,
+    .small-crd-grid > .skill-box,
+    .status-crd-grid > .skill-box {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+
+    .bar-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .small-crd-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .status-crd-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 20px;
+    }
+
+    /* Status Card එකේ අකුරු සයිස් හදනවා */
+    .status-crd-grid > .skill-box > .box-description {
+        font-size: 1rem !important;
+    }
+
+    .status-crd-grid > .skill-box > .box-title {
+        font-size: 0.8rem !important;
+    }
 
 }
 
