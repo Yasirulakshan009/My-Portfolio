@@ -40,7 +40,7 @@ overflow: hidden;
 .heroglass {
 
 width:98%;
-height:96%;
+height:98%;
 background: rgba(5, 0, 13, 0.4);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -2403,7 +2403,7 @@ font-size:3rem;
 
     .home_image {
         position: absolute;
-        top: 10px;
+        top: 20px;
         right: 50%;
         transform: translateX(50%);
         height: 40%;
