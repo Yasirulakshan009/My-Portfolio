@@ -483,7 +483,7 @@ font-size: 2rem;
     font-size: 18px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
+    border-radius: 30%;
     backdrop-filter: blur(5px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -587,9 +587,9 @@ align-self: flex-start;
 
 .about-circle {
     width: 25vw;
-    height: 25vw;
+    height: 30vw;
     background: radial-gradient(circle, rgba(138, 43, 226, 0.5), #000);
-    border-radius: 50%;
+    border-radius: 10%;
     position: relative;
     border: 1px solid #8a2be2;
     overflow: hidden;
@@ -602,7 +602,7 @@ align-self: flex-start;
     width: 100%;
     height: auto;
     position: absolute;
-    bottom: -35%;
+    bottom: -25%;
     left: 50%;
     transform: translateX(-50%);
     object-fit: cover;
@@ -713,7 +713,7 @@ color: #fff;
     height: 80px;
     background:#000000;
     border-radius: 50%;
-    box-shadow:  0px 0px 10px #8a2be2;
+    box-shadow:  0 0 10px #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -736,7 +736,7 @@ color: #fff;
 .core::before {
     content: "";
     position: absolute;
-    inset: 0px;
+    inset: 2px;
     border-radius: 50%;
     padding: 5px;
 
@@ -776,7 +776,7 @@ color: #fff;
     border: 2px solid white;
     -webkit-mask-composite: source-in;
     mask-composite: intersect;
-    z-index: 1;
+    z-index: -1;
 }
 
 .orbit1::after{
@@ -845,7 +845,7 @@ color: #fff;
     position: absolute;
     width: 50px;
     height: 50px;
-    border: 2px solid white;
+    border: 1px solid white;
     border-radius: 50%;
     background: #000000;
     box-shadow: 0 0 20px #8a2be2;
@@ -855,7 +855,7 @@ color: #fff;
     font-size: 1.8rem;
     animation: inherit;
     animation-direction: reverse;
-    z-index: 2;
+    z-index: 1;
 }
 
 
@@ -875,18 +875,19 @@ color: #fff;
     position: relative;
     width: 50px;
     height: 50px;
-    border: 2px solid white;
     border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.6);
     background: #000000;
-    box-shadow: 0 0 20px #8a2be2;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     top: auto;
     left: auto;
     right: auto;
     bottom: auto;
+    z-index: 10;
+
 
 }
 
@@ -903,12 +904,12 @@ color: #fff;
 }
 
 #icon1 {
-    right: -15px;
-    top: 40px;
+    right: -20px;
+    top: 30px;
 }
 #icon2 {
-    left: -15px;
-    bottom: 40px;
+    left: -20px;
+    bottom: 30px;
 }
 #icon3 {
     left: -20px;
@@ -966,7 +967,7 @@ gap : 30px;
     position: relative;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.01);
-    border-radius: 20px;
+    border-radius: 15px;
     padding: 20px;
     border: 1px solid #8a2be2;
     transition: all 0.5s ease;
@@ -1028,7 +1029,7 @@ gap : 30px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 0 10px 0;
 }
 .skill-bar {
     display: flex;
@@ -1129,40 +1130,74 @@ color:#aaa;
     opacity: 1;
 }
 
+.skill-content-wrapper:has(#progress-bars-card:hover) .icon + .icon-name{
+    box-shadow: 0 0 10px #8a2be2;
+    opacity: 1;
+    z-index: 10;
+}
+
+.skill-content-wrapper:has(#progress-bars-card:hover) .icon {
+    border-color: #8a2be2;
+    background-color: rgba(138, 43, 226, 0.2);
+    box-shadow: 0 0 10px #8a2be2;
+    color: #8a2be2;
+}
+
 /* --- Frontend Hover --- */
 .skill-content-wrapper:has(#frontend:hover) .icon:not(.frontend-icon) {
-    filter: grayscale(100%);
     opacity: 0.1;
 }
 
 .skill-content-wrapper:has(#frontend:hover) .icon.frontend-icon + .icon-name{
-    box-shadow: 0 0 20px #8a2be2;
+    box-shadow: 0 0 10px #8a2be2;
     opacity: 1;
     z-index: 10;
 }
 
 /* --- Backend Hover --- */
 .skill-content-wrapper:has(#backend:hover) .icon:not(.backend-icon) {
-    filter: grayscale(100%);
     opacity: 0.1;
 }
 
 .skill-content-wrapper:has(#backend:hover) .icon.backend-icon + .icon-name{
-    box-shadow: 0 0 20px #8a2be2;
+    box-shadow: 0 0 10px #8a2be2;
     opacity: 1;
     z-index: 10;
 }
 
 /* --- UI/UX Hover --- */
 .skill-content-wrapper:has(#design:hover) .icon:not(.design-icon) {
-    filter: grayscale(100%);
     opacity: 0.1;
 }
 
 .skill-content-wrapper:has(#design:hover) .icon.design-icon + .icon-name{
-    box-shadow: 0 0 20px #8a2be2;
+    box-shadow: 0 0 10px #8a2be2;
     opacity: 1;
     z-index: 10;
+}
+
+/* --- Frontend Card Hover --- */
+.skill-content-wrapper:has(#frontend:hover) .icon.frontend-icon {
+    border-color: #8a2be2;
+    background-color: rgba(138, 43, 226, 0.2);
+    box-shadow: 0 0 10px #8a2be2;
+    color: #8a2be2;
+}
+
+/* --- Backend Card Hover --- */
+.skill-content-wrapper:has(#backend:hover) .icon.backend-icon {
+    border-color: #8a2be2;
+    background-color: rgba(138, 43, 226, 0.2);
+    box-shadow: 0 0 10px #8a2be2;
+    color: #8a2be2;
+}
+
+/* --- UI/UX Card Hover --- */
+.skill-content-wrapper:has(#design:hover) .icon.design-icon {
+    border-color: #8a2be2;
+    background-color: rgba(138, 43, 226, 0.2);
+    box-shadow: 0 0 10px #8a2be2;
+    color: #8a2be2;
 }
 
 .orbit, .orbit::after, .orbit .icon {
@@ -2490,7 +2525,7 @@ font-size:3rem;
 
     .about-circle {
         width: 50vw;
-        height: 50vw;
+        height: 60vw;
     }
 
     /*||||||||||||||||||||||||||||||skill section|||||||||||||||||||||||||||||||||||*/
@@ -2539,14 +2574,13 @@ font-size:3rem;
     }
 
     .glass-cards-wrapper {
-        width: 90% !important;
+        width: 90% ;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
         gap: 20px;
     }
 
-    /* Cards වල Margin හදනවා */
     #progress-bars-card,
     .small-crd-grid > .skill-box,
     .status-crd-grid > .skill-box {
@@ -2570,13 +2604,12 @@ font-size:3rem;
         grid-column-gap: 20px;
     }
 
-    /* Status Card එකේ අකුරු සයිස් හදනවා */
     .status-crd-grid > .skill-box > .box-description {
-        font-size: 1rem !important;
+        font-size: 1rem ;
     }
 
     .status-crd-grid > .skill-box > .box-title {
-        font-size: 0.8rem !important;
+        font-size: 0.8rem ;
     }
 
 }
