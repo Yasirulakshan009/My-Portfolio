@@ -105,3 +105,66 @@ document.addEventListener('click', function(event) {
         menu.classList.remove('active');
     }
 });
+
+/*|||||||||||||||||||||||||||||||||||Loading animation||||||||||||||||||||||||||||||||*/
+
+window.addEventListener("DOMContentLoaded", () => {
+    const h1 = document.querySelector('.content h1');
+    if (h1) {
+        const text = h1.innerText;
+        h1.innerHTML = "";
+
+        text.split("").forEach((char, index) => {
+            const span = document.createElement("span");
+            span.classList.add("letter");
+            span.innerHTML = char === " " ? "&nbsp;" : char;
+            span.style.transitionDelay = (index * 0.03) + "s";
+            h1.appendChild(span);
+        });
+    }
+});
+
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loading-screen");
+    const img = document.querySelector(".home_image");
+    const nav = document.querySelector(".navbar");
+    const jumpText = document.querySelector(".jump-text");
+    const h1 = document.querySelector(".content h1");
+    const typingDiv = document.querySelector(".animated-text");
+    const p = document.querySelector(".content p");
+    const btns = document.querySelector(".hero-content-wrapper > .btn");
+    const socials = document.querySelector(".hero-content-wrapper > .socials");
+
+    setTimeout(() => {
+        if(loader) loader.classList.add("loader-hidden");
+
+        setTimeout(() => {
+            if(img) img.classList.add("reveal-active");
+
+            setTimeout(() => {
+                if(nav) nav.classList.add("reveal-active");
+                if(jumpText) jumpText.classList.add("reveal-active");
+            }, 400);
+
+            setTimeout(() => {
+                if(h1) h1.classList.add("reveal-now");
+            }, 600);
+
+            setTimeout(() => {
+                if(typingDiv) typingDiv.classList.add("reveal-active");
+            }, 1000);
+
+            setTimeout(() => {
+                if(p) p.classList.add("reveal-active");
+            }, 1300);
+
+            setTimeout(() => {
+                if(btns) btns.classList.add("reveal-active");
+                if(socials) socials.classList.add("reveal-active");
+            }, 1600);
+
+        }, 400);
+
+        setTimeout(() => { if(loader) loader.style.display = "none"; }, 1200);
+    }, 1500);
+});
