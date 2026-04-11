@@ -159,12 +159,33 @@ window.addEventListener("load", () => {
             }, 1300);
 
             setTimeout(() => {
-                if(btns) btns.classList.add("reveal-active");
                 if(socials) socials.classList.add("reveal-active");
             }, 1600);
+
+            setTimeout(() => {
+                if(btns) btns.classList.add("reveal-active");
+            }, 1800);
 
         }, 400);
 
         setTimeout(() => { if(loader) loader.style.display = "none"; }, 1200);
     }, 1500);
+});
+
+/*|||||||||||||||||||||||||||||about animation|||||||||||||||||||||||||||*/
+
+document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const img = document.querySelector('.about-image');
+    const content = document.querySelector('.about-content');
+
+    if(img) observer.observe(img);
+    if(content) observer.observe(content);
 });
