@@ -3024,7 +3024,7 @@ font-size:3rem;
 .navbar { transform: translateX(-50%) translateY(-50px); }
 
 .reveal-active {
-    opacity: 1 ;
+    opacity: 1 !important;
     transform: translate(0, 0) scale(1);
 }
 .navbar.reveal-active { transform: translateX(-50%) translateY(0) ; }
