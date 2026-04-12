@@ -3052,7 +3052,7 @@ font-size:3rem;
 .about-image,
 .about-description,
 .about-content .btn,
-.about-section .jump-text {
+.jump-text {
     opacity: 0;
     transform: translateY(60px);
     transition: all 0.8s ease;
@@ -3062,7 +3062,7 @@ font-size:3rem;
     transform: translateY(-80px);
 }
 
-
+/* ACTIVE */
 .about-section.show .about-image {
     opacity: 1;
     transform: translateY(0);
@@ -3074,7 +3074,7 @@ font-size:3rem;
     transition-delay: 0.3s;
 }
 
-.about-section.show .about-section .jump-text {
+.about-section.show .jump-text {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.2s;
