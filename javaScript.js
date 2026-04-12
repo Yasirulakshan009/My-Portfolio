@@ -128,7 +128,7 @@ window.addEventListener("load", () => {
     const loader = document.getElementById("loading-screen");
     const img = document.querySelector(".home_image");
     const nav = document.querySelector(".navbar");
-    const jumpText = document.querySelector(".jump-text");
+    const jumpTexts = document.querySelectorAll(".jump-text");
     const h1 = document.querySelector(".content h1");
     const typingDiv = document.querySelector(".animated-text");
     const p = document.querySelector(".content p");
@@ -143,7 +143,9 @@ window.addEventListener("load", () => {
 
             setTimeout(() => {
                 if(nav) nav.classList.add("reveal-active");
-                if(jumpText) jumpText.classList.add("reveal-active");
+                jumpTexts.forEach(text => {
+                    text.classList.add("reveal-active");
+                });
             }, 400);
 
             setTimeout(() => {
@@ -152,40 +154,40 @@ window.addEventListener("load", () => {
 
             setTimeout(() => {
                 if(typingDiv) typingDiv.classList.add("reveal-active");
-            }, 1000);
+            }, 1100);
 
             setTimeout(() => {
                 if(p) p.classList.add("reveal-active");
-            }, 1300);
+            }, 1500);
 
             setTimeout(() => {
                 if(socials) socials.classList.add("reveal-active");
-            }, 1600);
+            }, 1800);
 
             setTimeout(() => {
                 if(btns) btns.classList.add("reveal-active");
-            }, 1800);
+            }, 2100);
 
         }, 400);
 
-        setTimeout(() => { if(loader) loader.style.display = "none"; }, 1200);
+        setTimeout(() => {
+            if(loader) loader.style.display = "none";
+        }, 1200);
     }, 1500);
 });
 
 /*|||||||||||||||||||||||||||||about animation|||||||||||||||||||||||||||*/
 
-document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('reveal-active');
-            }
-        });
-    }, { threshold: 0.1 });
+const about = document.querySelector(".about-section");
 
-    const img = document.querySelector('.about-image');
-    const content = document.querySelector('.about-content');
-
-    if(img) observer.observe(img);
-    if(content) observer.observe(content);
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, {
+    threshold: 0.3
 });
+
+observer.observe(about);
