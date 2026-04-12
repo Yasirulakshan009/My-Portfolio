@@ -91,6 +91,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+/*|||||||||||||||||||||||||||||||||||||||gallery section|||||||||||||||||||||||||||||||||||*/
+
+const lightbox = document.getElementById('lightbox');
+const boxImage = document.getElementById('boxImage');
+document.querySelectorAll('.grid-item img').forEach(img => {
+    img.onclick = () => {
+        boxImage.src = img.src;
+        lightbox.style.display = 'flex';
+    };
+});
+
 /*||||||||||||||||||||||||||||||||||||hamburger nav bar |||||||||||||||||||||||||||||||||||||||||||||*/
 const btn = document.getElementById('hamburgerBtn');
 const menu = document.getElementById('mobileMenuList');
@@ -173,23 +184,22 @@ window.addEventListener("load", () => {
         setTimeout(() => {
             if(loader) loader.style.display = "none";
         }, 1200);
-    }, 1500);
+    }, 1000);
 });
 
 /*|||||||||||||||||||||||||||||about animation|||||||||||||||||||||||||||*/
+const animatedElements = document.querySelectorAll(
+    ".about-image, .about-description, .about-content .btn, .e-card"
+);
 
-const about = document.querySelector(".about-section");
-
-const observer = new IntersectionObserver((entries) => {
+const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add("show");
-        } else {
-            entry.target.classList.remove("show");
         }
     });
 }, {
     threshold: 0.3
 });
 
-observer.observe(about);
+animatedElements.forEach(el => scrollObserver.observe(el));
