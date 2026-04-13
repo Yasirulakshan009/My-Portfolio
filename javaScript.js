@@ -187,19 +187,24 @@ window.addEventListener("load", () => {
     }, 1000);
 });
 
-/*|||||||||||||||||||||||||||||about animation|||||||||||||||||||||||||||*/
-const animatedElements = document.querySelectorAll(
-    ".about-image, .about-description, .about-content .btn, .e-card"
-);
+/*||||||||||||||||||||||||||||| Updated About Animation JS |||||||||||||||||||||||||||*/
 
-const scrollObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
+document.addEventListener("DOMContentLoaded", () => {
+    const animatedElements = document.querySelectorAll(
+        ".about-circle, .about-description, .about-content .btn, .about-content .title, .e-card"
+    );
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, {
+        threshold: 0.2
     });
-}, {
-    threshold: 0.3
-});
 
-animatedElements.forEach(el => scrollObserver.observe(el));
+    animatedElements.forEach(el => {
+        scrollObserver.observe(el);
+    });
+});

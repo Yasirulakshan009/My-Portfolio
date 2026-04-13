@@ -3061,28 +3061,31 @@ font-size:3rem;
 
 /*|||||||||||||||||||||||about, education animation||||||||||||||||||||||||||||||*/
 
-.about-image,
+.about-circle {
+    opacity: 0;
+    transform: scale(0.3);
+    transform-origin: bottom;
+    transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.about-circle.show {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
 .about-description,
 .about-content .btn,
-.jump-text,
+.about-content .title,
 .e-card {
     opacity: 0;
     transform: translateY(40px);
-    transition: 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.about-image.show,
 .about-description.show,
 .about-content .btn.show,
-.jump-text.show,
+.about-content .title.show,
 .e-card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-@media (min-width: 768px) {
-    .e-card:nth-child(1) { transition-delay: 0.1s; }
-    .e-card:nth-child(2) { transition-delay: 0.3s; }
-    .e-card:nth-child(3) { transition-delay: 0.5s; }
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
