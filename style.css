@@ -1340,12 +1340,14 @@ color:#8a2be2;
     pointer-events: none;
 }
 
+.e-card:active,
 .e-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 0 10px #8a2be2;
     border: 1px solid #8a2be2;
 }
 
+.e-card:active::after,
 .e-card:hover::after {
     left: 100%;
 }
@@ -2189,7 +2191,7 @@ footer{
 
 /*|||||||||||||||||||||||||||||||||||||||gallery-section|||||||||||||||||||||||||||||||||||*/
 
-/* --- Gallery Section --- */
+
 .gallery-section {
     width: 100%;
     height: 100vh;
@@ -2200,7 +2202,7 @@ footer{
     justify-content: center;
 }
 
-/* --- Container & Heading --- */
+
 .gallery-container {
     position: relative;
     width: 100vw;
@@ -2218,7 +2220,6 @@ footer{
     z-index: 10;
 }
 
-/* --- Grid Wrapper --- */
 .grid-wrapper {
     display: grid;
     width: 100%;
@@ -2229,13 +2230,13 @@ footer{
     margin-top: 10vh;
 }
 
-/* --- Premium Grid Item --- */
+
 .grid-item {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
     background: #111;
-    border: 1px solid rgba(138, 43, 226, 0.3);
+    border: 1px solid rgba(138, 43, 226, 1);
     cursor: pointer;
     transition: all 0.4s ease;
 }
@@ -2248,21 +2249,17 @@ footer{
     transition: transform 0.6s ease;
 }
 
-/* --- Hover Effects --- */
-.grid-item:hover,
-.grid-item:active {
+.grid-item:hover {
     border-color: rgba(138, 43, 226, 0.8);
     box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
     transform: translateY(-5px);
 }
 
-.grid-item:hover img,
-.grid-item:active img {
+.grid-item:hover img {
     transform: scale(1.1);
     filter: brightness(0.5);
 }
 
-/* --- Text Overlay --- */
 .grid-item::after {
     content: 'CLICK TO VIEW';
     position: absolute;
@@ -2280,8 +2277,7 @@ footer{
     pointer-events: none;
 }
 
-.grid-item:hover::after,
-.grid-item:active::after {
+.grid-item:hover::after {
     opacity: 1;
 }
 
@@ -2312,7 +2308,7 @@ footer{
     border-radius: 10px;
     border: 2px solid #8a2be2;
     box-shadow: 0 0 50px rgba(138, 43, 226, 1);
-    animation: zoomIn 0.3s ease-out;
+    animation: zoomIn 0.5s ease-out;
 }
 
 @keyframes zoomIn {
@@ -2755,14 +2751,25 @@ font-size:3rem;
 
     /*||||||||||||||||||||||||||||||||||||||||||gallery section|||||||||||||||||||||||||||||*/
 
-    .slide:active {
-        transform: scale(1.1);
-        z-index: 100;
+    .grid-item::after {
+        content: 'CLICK';
+        opacity: 1;
+        inset: auto;
+        top: 10px;
+        right: 10px;
+        width: auto;
+        height: auto;
+        padding: 4px 8px;
+        background: rgba(138, 43, 226, 0.8);
+        border-radius: 4px;
+        font-size: 10px;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .slide:active img {
-        border: 3px solid #fff;
-        box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+
+    .grid-item {
+        border-color: rgba(138, 43, 226, 0.5);
     }
 
     /*||||||||||||||||||||||||||||||||||||||||||||||contact section|||||||||||||||||||||||||||||*/
