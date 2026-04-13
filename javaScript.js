@@ -1,3 +1,5 @@
+document.addEventListener("touchstart", function() {}, {passive: true});
+
 const textElement = document.getElementById("typing-text");
 const words = ["Web Developer", "UI/UX Designer", "Frontend Developer"];
 let wordIndex = 0;
