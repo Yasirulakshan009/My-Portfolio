@@ -58,41 +58,60 @@ window.addEventListener("scroll", function() {
 });
 /*|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
-document.addEventListener("DOMContentLoaded", () => {
-    const slides = document.querySelectorAll(".project-display");
-    const leftContents = document.querySelectorAll(".left-content");
-    const rightContents = document.querySelectorAll(".right-content");
-    const nextBtn = document.querySelector(".right-slide-btn");
-    const prevBtn = document.querySelector(".left-slide-btn");
+let currentIndex = 0;
 
-    let currentIndex = 0;
+const slides = document.querySelectorAll(".project-display");
+const leftContents = document.querySelectorAll(".left-content");
+const rightContents = document.querySelectorAll(".right-content");
+const leftBtn = document.querySelector(".left-slide-btn");
+const rightBtn = document.querySelector(".right-slide-btn");
 
-    function updateSlide(index) {
-        slides.forEach(s => s.classList.remove("active"));
-        leftContents.forEach(l => l.classList.remove("active"));
-        rightContents.forEach(r => r.classList.remove("active"));
+function updateSlide(index) {
+    if (index < 0 || index >= slides.length) return;
 
-        if (index >= slides.length) currentIndex = 0;
-        if (index < 0) currentIndex = slides.length - 1;
+    currentIndex = index;
+
+    setTimeout(() => {
+        [slides, leftContents, rightContents].forEach(list => {
+            list.forEach(item => item.classList.remove("active"));
+        });
 
         slides[currentIndex].classList.add("active");
         leftContents[currentIndex].classList.add("active");
         rightContents[currentIndex].classList.add("active");
-    }
 
-    nextBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        currentIndex++;
-        updateSlide(currentIndex);
-    });
+        const activeImgContainer = slides[currentIndex].querySelector(".project-image");
+        if (activeImgContainer) {
+            activeImgContainer.style.animation = 'none';
+            activeImgContainer.offsetHeight; // Reflow trigger
+            activeImgContainer.style.animation = null;
+        }
 
-    prevBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        currentIndex--;
-        updateSlide(currentIndex);
-    });
+        updateButtonStyles();
+    }, 400);
+}
+
+function updateButtonStyles() {
+    leftBtn.style.opacity = currentIndex === 0 ? "0.3" : "1";
+    leftBtn.style.pointerEvents = currentIndex === 0 ? "none" : "auto";
+
+    rightBtn.style.opacity = currentIndex === slides.length - 1 ? "0.3" : "1";
+    rightBtn.style.pointerEvents = currentIndex === slides.length - 1 ? "none" : "auto";
+}
+
+rightBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    updateSlide(currentIndex + 1);
 });
 
+leftBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    updateSlide(currentIndex - 1);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    updateButtonStyles();
+});
 /*|||||||||||||||||||||||||||||||||||||||gallery section|||||||||||||||||||||||||||||||||||*/
 
 const lightbox = document.getElementById('lightbox');
@@ -189,24 +208,114 @@ window.addEventListener("load", () => {
     }, 1000);
 });
 
-/*||||||||||||||||||||||||||||| Updated About Animation JS |||||||||||||||||||||||||||*/
-
+/*||||||||||||||||||||||||||||| scrol animation |||||||||||||||||||||||||||*/
 document.addEventListener("DOMContentLoaded", () => {
+    // Orbit eka iwara unada kiyala mathaka thiyaganna me variable eka ona wenawa
+    let orbitFinished = false;
+
+    // 1. Anka tika (1, 2, 3...) widihata count karanna ona nisa me function eka hadala thiyanawa
+    const animateNumber = (element, finalValue) => {
+        let current = 0;
+        const targetValue = finalValue;
+        const stepTime = 200; // Anka maru wena vegaya (millisecond 200)
+
+        const timer = setInterval(() => {
+            if (current < targetValue) {
+                current++;
+                element.innerText = current + "+";
+            } else {
+                // Final anketa awa gaman timer eka nawattanawa
+                element.innerText = targetValue + "+";
+                clearInterval(timer);
+            }
+        }, stepTime);
+    };
+
+    // Animation karanna ona hamama elements tika select karagannawa
     const animatedElements = document.querySelectorAll(
-        ".about-circle, .about-description, .about-content .btn, .about-content .title, .e-card"
+        ".about-circle, .about-description, .about-content .btn, .about-content .title, .e-card, .grid-item, .orbit-system, .skill-box"
     );
 
+    // Screen eke scroll karaddi elements penawada kiyala balanna "Observer" ekak hadanawa
     const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+
+            // --- ORBIT SYSTEM (Screen eke 20% k penena kota) ---
+            if (entry.target.classList.contains('orbit-system')) {
+                if (entry.intersectionRatio >= 0.2 && !entry.target.classList.contains('show')) {
+                    entry.target.classList.add("show"); // Orbit animation eka start karanawa
+
+                    // Orbit eka thappara 1.5 kin iwarai kiyala mark karagannawa
+                    setTimeout(() => {
+                        orbitFinished = true;
+                    }, 1500);
+                    scrollObserver.unobserve(entry.target);
+                }
+                return;
+            }
+
+            // --- SKILL BOXES MATHU VEEMA (1% k screen eke penena kota) ---
+            if (entry.intersectionRatio > 0.01) {
+                entry.target.classList.add("show"); // Box eka fade-in wenawa
+
+                const statusIds = ['tech', 'project', 'learning'];
+                if (statusIds.includes(entry.target.id)) {
+                    const numberElement = entry.target.querySelector('.box-description');
+
+                    // Box eke thiyena ankaya save karagena, box eka "0+" karanawa
+                    if (numberElement && !entry.target.hasAttribute('data-final')) {
+                        const actualValue = parseInt(numberElement.innerText.replace(/[^0-9]/g, ''));
+                        entry.target.setAttribute('data-final', actualValue);
+                        numberElement.innerText = "0+";
+                    }
+                }
+            }
+
+            // --- PROGRESS BARS & NUMBERS (Box eka 95% - 100% penena kota) ---
+            if (entry.intersectionRatio >= 0.95) {
+
+                const triggerVisuals = () => {
+                    // Orbit eka iwara wenakan balan inna ona
+                    if (orbitFinished) {
+
+                        // A. Progress Bars pirima start karanawa
+                        if (entry.target.id === "progress-bars-card" && !entry.target.classList.contains('start-bar')) {
+                            entry.target.classList.add("start-bar");
+                            scrollObserver.unobserve(entry.target);
+                        }
+
+                        // B. Anka count eka start karanawa
+                        const statusIds = ['tech', 'project', 'learning'];
+                        if (statusIds.includes(entry.target.id) && !entry.target.classList.contains('counted')) {
+                            entry.target.classList.add('counted'); // Ayeth count nowenna mark karanawa
+
+                            const finalVal = parseInt(entry.target.getAttribute('data-final'));
+                            const numberElement = entry.target.querySelector('.box-description');
+
+                            // Anka tika count wenna start karanawa
+                            animateNumber(numberElement, finalVal);
+                            scrollObserver.unobserve(entry.target);
+                        }
+                    } else {
+                        // Orbit eka thama iwara naththam thawa thappara 0.3 kin ayeth check karanawa
+                        setTimeout(triggerVisuals, 300);
+                    }
+                };
+
+                triggerVisuals();
+            }
+
+            // --- CARDS WAGE ANITH GENERAL ELEMENTS ---
+            if (entry.isIntersecting && !entry.target.classList.contains('skill-box') && !entry.target.classList.contains('orbit-system')) {
                 entry.target.classList.add("show");
+                scrollObserver.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.2
+        // Screen eke kora tharamatada meka weda karanna ona kiyala kiyanawa (1%, 20%, 95%)
+        threshold: [0.01, 0.2, 0.95]
     });
 
-    animatedElements.forEach(el => {
-        scrollObserver.observe(el);
-    });
+    // Ham element ekakatama observer eka connect karanawa
+    animatedElements.forEach(el => scrollObserver.observe(el));
 });
