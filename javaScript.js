@@ -213,24 +213,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Orbit eka iwara unada kiyala mathaka thiyaganna me variable eka ona wenawa
     let orbitFinished = false;
 
-    // 1. Anka tika (1, 2, 3...) widihata count karanna ona nisa me function eka hadala thiyanawa
-    const animateNumber = (element, finalValue) => {
-        let current = 0;
-        const targetValue = finalValue;
-        const stepTime = 200; // Anka maru wena vegaya (millisecond 200)
-
-        const timer = setInterval(() => {
-            if (current < targetValue) {
-                current++;
-                element.innerText = current + "+";
-            } else {
-                // Final anketa awa gaman timer eka nawattanawa
-                element.innerText = targetValue + "+";
-                clearInterval(timer);
-            }
-        }, stepTime);
-    };
-
     // Animation karanna ona hamama elements tika select karagannawa
     const animatedElements = document.querySelectorAll(
         ".about-circle, .about-description, .about-content .btn, .about-content .title, .e-card, .grid-item, .orbit-system, .skill-box"
@@ -254,46 +236,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // --- SKILL BOXES MATHU VEEMA (1% k screen eke penena kota) ---
+            // --- SKILL BOXES & OTHER ELEMENTS MATHU VEEMA ---
             if (entry.intersectionRatio > 0.01) {
                 entry.target.classList.add("show"); // Box eka fade-in wenawa
-
-                const statusIds = ['tech', 'project', 'learning'];
-                if (statusIds.includes(entry.target.id)) {
-                    const numberElement = entry.target.querySelector('.box-description');
-
-                    // Box eke thiyena ankaya save karagena, box eka "0+" karanawa
-                    if (numberElement && !entry.target.hasAttribute('data-final')) {
-                        const actualValue = parseInt(numberElement.innerText.replace(/[^0-9]/g, ''));
-                        entry.target.setAttribute('data-final', actualValue);
-                        numberElement.innerText = "0+";
-                    }
-                }
             }
 
-            // --- PROGRESS BARS & NUMBERS (Box eka 95% - 100% penena kota) ---
+            // --- PROGRESS BARS (Box eka 95% - 100% penena kota) ---
             if (entry.intersectionRatio >= 0.95) {
-
                 const triggerVisuals = () => {
-                    // Orbit eka iwara wenakan balan inna ona
+                    // Orbit eka iwara wenakan balan inna ona progress bars load wenna
                     if (orbitFinished) {
-
-                        // A. Progress Bars pirima start karanawa
                         if (entry.target.id === "progress-bars-card" && !entry.target.classList.contains('start-bar')) {
                             entry.target.classList.add("start-bar");
-                            scrollObserver.unobserve(entry.target);
-                        }
-
-                        // B. Anka count eka start karanawa
-                        const statusIds = ['tech', 'project', 'learning'];
-                        if (statusIds.includes(entry.target.id) && !entry.target.classList.contains('counted')) {
-                            entry.target.classList.add('counted'); // Ayeth count nowenna mark karanawa
-
-                            const finalVal = parseInt(entry.target.getAttribute('data-final'));
-                            const numberElement = entry.target.querySelector('.box-description');
-
-                            // Anka tika count wenna start karanawa
-                            animateNumber(numberElement, finalVal);
                             scrollObserver.unobserve(entry.target);
                         }
                     } else {
@@ -301,7 +255,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         setTimeout(triggerVisuals, 300);
                     }
                 };
-
                 triggerVisuals();
             }
 
@@ -312,10 +265,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, {
-        // Screen eke kora tharamatada meka weda karanna ona kiyala kiyanawa (1%, 20%, 95%)
+        // Screen eke kora tharamatada meka weda karanna ona kiyala kiyanawa
         threshold: [0.01, 0.2, 0.95]
     });
 
     // Ham element ekakatama observer eka connect karanawa
     animatedElements.forEach(el => scrollObserver.observe(el));
 });
+
