@@ -2823,13 +2823,13 @@ font-size:3rem;
         font-size: 0.8rem ;
     }
 
-
     /*|||||||||||||||||||||||||||||||||||||||project section||||||||||||||||||||||||||||||||*/
 
     .project-section {
         height: auto;
         padding: 20px 0;
     }
+
 
     .main-container {
         padding: 20px;
@@ -2841,6 +2841,10 @@ font-size:3rem;
     .middle-content > .heading {
         padding-bottom: 40px;
         text-align: center;
+    }
+
+    .project-display {
+        touch-action: pan-y;
     }
 
     .project-image {

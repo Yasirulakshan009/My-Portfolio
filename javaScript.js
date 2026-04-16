@@ -275,15 +275,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.querySelectorAll('.project-display').forEach(box => {
     let x = 0;
+
     box.ontouchstart = e => x = e.touches[0].clientX;
+
     box.ontouchend = e => {
         let diff = x - e.changedTouches[0].clientX;
 
-        let imgs = box.querySelectorAll('img');
-        let srcs = [...imgs].map(i => i.src);
+        if (Math.abs(diff) > 30) {
+            let imgs = box.querySelectorAll('img');
+            let srcs = [...imgs].map(i => i.src);
 
-        diff > 0 ? srcs.push(srcs.shift()) : srcs.unshift(srcs.pop());
+            diff > 0 ? srcs.push(srcs.shift()) : srcs.unshift(srcs.pop());
 
-        imgs.forEach((img, i) => img.src = srcs[i]);
+            imgs.forEach((img, i) => img.src = srcs[i]);
+        }
     };
 });
