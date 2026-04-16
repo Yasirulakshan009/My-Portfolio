@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Animation karanna ona hamama elements tika select karagannawa
     const animatedElements = document.querySelectorAll(
-        ".about-circle, .about-description, .about-content .btn, .about-content .title, .e-card, .grid-item, .orbit-system, .skill-box"
+        ".about-circle, .about-description, .about-content .btn, .about-content .title, .e-card, .grid-item, .orbit-system, .skill-box, .project-display, .bottom-content"
     );
 
     // Screen eke scroll karaddi elements penawada kiyala balanna "Observer" ekak hadanawa
@@ -273,3 +273,17 @@ document.addEventListener("DOMContentLoaded", () => {
     animatedElements.forEach(el => scrollObserver.observe(el));
 });
 
+document.querySelectorAll('.project-display').forEach(box => {
+    let x = 0;
+    box.ontouchstart = e => x = e.touches[0].clientX;
+    box.ontouchend = e => {
+        let diff = x - e.changedTouches[0].clientX;
+
+        let imgs = box.querySelectorAll('img');
+        let srcs = [...imgs].map(i => i.src);
+
+        diff > 0 ? srcs.push(srcs.shift()) : srcs.unshift(srcs.pop());
+
+        imgs.forEach((img, i) => img.src = srcs[i]);
+    };
+});

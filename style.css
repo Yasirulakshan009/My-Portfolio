@@ -2829,7 +2829,6 @@ font-size:3rem;
     .project-section {
         height: auto;
         padding: 20px 0;
-
     }
 
     .main-container {
@@ -2870,30 +2869,35 @@ font-size:3rem;
     }
 
     .project-image ~.top-left {
-        transform: translate(-35%, -40%);
-        opacity: 0.3;
+        transform: translate(-35%, -40%) !important;
+        opacity: 0.3 !important;
         z-index: 10;
     }
 
 
     .project-image ~.top-right {
-        transform: translate(-65%, -40%);
-        opacity: 0.5;
+        transform: translate(-65%, -40%) !important;
+        opacity: 0.5 !important;
         z-index: 10;
     }
 
     .project-image ~.bottom-left {
-        transform: translate(-18%, -40%) scale(0.8);
-        opacity: 0.2;
+        transform: translate(-18%, -40%) scale(0.8) !important;
+        opacity: 0.2 !important;
         z-index: 8;
     }
 
 
     .project-image ~.bottom-right {
-        transform: translate(-83%, -40%) scale(0.8);
-        opacity: 0.2;
+        transform: translate(-83%, -40%) scale(0.8) !important;
+        opacity: 0.2 !important;
         z-index: 8;
 
+    }
+
+    @keyframes fadeEffect {
+        0% { opacity: 0.7; transform: scale(0.95); }
+        100% { opacity: 1; transform: scale(1); }
     }
 
 
@@ -2931,7 +2935,9 @@ font-size:3rem;
         font-size: 1.5rem;
     }
 
-    .rotate-circle { display: none; }
+    .rotate-circle {
+        display: none;
+    }
 
     .project-glass > .main-colorbox{
         top:35%;
@@ -3383,6 +3389,17 @@ font-size:3rem;
 
 .skill-box.start-bar .skill-bar > .bar::after {
     width: 100% ;
+}
+
+.project-display, .bottom-content {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.project-display.show, .bottom-content.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
