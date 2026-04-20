@@ -42,6 +42,7 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#exercises">Exercises</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </section>
@@ -58,6 +59,7 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#exercises">Exercises</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -66,7 +68,11 @@
     <section class="hero-section" id="hero">
         <section class="heroglass">
 
-            <div class="blob-style"></div>
+            <div class="blob-style" id="home-colorbox1"></div>
+            <div class="blob-style" id="home-colorbox2"></div>
+            <div class="blob-style" id="home-colorbox3"></div>
+            <div class="blob-style" id="home-colorbox4"></div>
+
 
             <div class="grid-box"></div>
 
@@ -142,7 +148,10 @@
 
         <section class="skill-glass">
 
-            <div id="skill-colorbox1"></div>
+            <div class="skill-colorbox" id="skill-colorbox1"></div>
+            <div class="skill-colorbox" id="skill-colorbox2"></div>
+            <div class="skill-colorbox" id="skill-colorbox3"></div>
+            <div class="skill-colorbox" id="skill-colorbox4"></div>
 
             <div class="skill-container">
                 <div class="heading">
@@ -450,7 +459,7 @@
 
     <section class="gallery-section" id="gallery">
 
-            <div class="gallery-container">
+            <main class="gallery-container">
                 <div class="heading">
                     <h1 class="title">MY <span class="jump-text">GALLERY</span></h1>
                 </div>
@@ -464,13 +473,59 @@
                     <div class="grid-item item-7"><img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800"></div>
                     <div class="grid-item item-8"><img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=800"></div>
                 </div>
-            </div>
+            </main>
 
         <div id="lightbox" onclick="this.style.display='none'">
             <img id="boxImage" src="">
         </div>
     </section>
 
+    <!--||||||||||||||||||||||||||||||||||||Exercises|||||||||||||||||||||||||||||||||||||||||||||||||-->
+
+    <section class="exercises-section" id="exercises">
+        <section class="exercises-glass">
+            <div class="exercises-colorbox" id="exercises-colorbox1"></div>
+            <div class="exercises-colorbox" id="exercises-colorbox2"></div>
+            <div class="exercises-colorbox" id="exercises-colorbox3"></div>
+            <div class="exercises-colorbox" id="exercises-colorbox4"></div>
+
+            <main class="exercises-main-container">
+                <div class="heading">
+                    <h1 class="title">MY <span class="jump-text">Exercises</span></h1>
+                </div>
+
+                <div id="gallery-view"></div>
+            </main>
+        </section>
+    </section>
+
+    <div id="editor-view">
+        <button class="back-btn" onclick="closeLab()">Back</button>
+        <div class="editors-container">
+            <div class="apple-window">
+                <div class="win-header">
+                    <div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    <span class="win-title">HTML</span>
+                </div>
+                <pre id="html-code"></pre>
+            </div>
+            <div class="apple-window">
+                <div class="win-header">
+                    <div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    <span class="win-title">CSS</span>
+                </div>
+                <pre id="css-code"></pre>
+            </div>
+            <div class="apple-window">
+                <div class="win-header">
+                    <div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    <span class="win-title">JS</span>
+                </div>
+                <pre id="js-code"></pre>
+            </div>
+        </div>
+        <iframe id="preview"></iframe>
+    </div>
     <!--|||||||||||||||||||||||||||||||||||||contact section||||||||||||||||||||||||||||||||||||||||||-->
 
     <section class="contact-section" id="contact">
@@ -605,6 +660,7 @@
                     <li><a href="#education">Education</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#exercises">Exercises</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>

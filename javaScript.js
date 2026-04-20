@@ -83,7 +83,7 @@ function updateSlide(index) {
         const activeImgContainer = slides[currentIndex].querySelector(".project-image");
         if (activeImgContainer) {
             activeImgContainer.style.animation = 'none';
-            activeImgContainer.offsetHeight; // Reflow trigger
+            activeImgContainer.offsetHeight;
             activeImgContainer.style.animation = null;
         }
 
@@ -122,6 +122,62 @@ document.querySelectorAll('.grid-item img').forEach(img => {
         lightbox.style.display = 'flex';
     };
 });
+
+/*|||||||||||||||||||||||||||||||||||||||||exercise section||||||||||||||||||||||||||||||*/
+
+const exercises = [
+    { id: 'ex1', title: 'Core Styling', desc: 'Comprehensive exploration of CSS box models, alignment strategies, and layout architecture.' },
+    { id: 'ex2', title: 'Glass Physics', desc: 'Advanced UI techniques utilizing backdrop-filters, dynamic blurs, and translucent layering.' },
+    { id: 'ex3', title: 'Typography Pro', desc: 'Implementing precise font-weight distributions and hierarchical text scaling for readability.' },
+    { id: 'ex4', title: 'Vector Shapes', desc: 'Crafting complex geometric interfaces and custom components using purely CSS drawing properties.' },
+    { id: 'ex5', title: 'Form Mechanics', desc: 'Developing modern, responsive input systems with focus state animations and clean validation UI.' },
+    { id: 'ex6', title: 'Motion Design', desc: 'High-performance keyframe animations featuring synchronized multi-element movement cycles.' }
+];
+
+const exerciseData = {
+    ex1: { html: '<div class="box">Ex 01</div>', css: '.box { padding: 40px; background: #8a2be2; color: white; border-radius: 15px; }', js: '' },
+    ex2: { html: '<div class="glass">Glass</div>', css: '.glass { padding: 30px; backdrop-filter: blur(10px); background: rgba(0,0,0,0.1); border-radius: 20px; }', js: '' },
+    ex3: { html: '<h1>Typography</h1>', css: 'h1 { font-weight: 300; letter-spacing: -1px; }', js: '' },
+    ex4: { html: '<div class="circle"></div>', css: '.circle { width: 50px; height: 50px; background: purple; border-radius: 50%; }', js: '' },
+    ex5: { html: '<input type="text" placeholder="Focus me">', css: 'input { padding: 10px; border-radius: 8px; border: 1px solid #ccc; outline: none; } input:focus { border-color: purple; }', js: '' },
+    ex6: { html: '<div class="move">🏎️</div>', css: '.move { font-size: 30px; animation: drive 2s infinite linear; position: relative; } @keyframes drive { from { left: 0; } to { left: 80%; } }', js: '' }
+};
+
+const gallery = document.getElementById('gallery-view');
+gallery.innerHTML = exercises.map(ex => `
+    <div class="ex-card">
+        <div class="card-content">
+            <span class="ex-badge">${ex.id.replace('ex', 'Exercise ')}</span>
+            <span class="ex-title">${ex.title}</span>
+            <span class="ex-desc">${ex.desc}</span>
+        </div>
+        <div class="card-footer">
+            <button class="ex-btn btn-github">GitHub</button>
+            <button class="ex-btn btn-preview" onclick="openLab('${ex.id}')">Preview</button>
+        </div>
+    </div>
+`).join('');
+
+function openLab(exId) {
+    const data = exerciseData[exId];
+    if (data) {
+        document.getElementById("html-code").textContent = data.html;
+        document.getElementById("css-code").textContent = data.css;
+        document.getElementById("js-code").textContent = data.js || "// No JS logic";
+        document.getElementById("editor-view").classList.add("active");
+        run();
+    }
+}
+
+function closeLab() { document.getElementById("editor-view").classList.remove("active"); }
+
+function run() {
+    const preview = document.getElementById("preview");
+    const html = document.getElementById("html-code").textContent;
+    const css = `<style>body{margin:0; padding:20px; font-family:sans-serif; background:#fff;}${document.getElementById("css-code").textContent}</style>`;
+    const js = `<script>${document.getElementById("js-code").textContent}<\/script>`;
+    preview.srcdoc = `<html><head>${css}</head><body>${html}${js}</body></html>`;
+}
 
 /*||||||||||||||||||||||||||||||||||||hamburger nav bar |||||||||||||||||||||||||||||||||||||||||||||*/
 const btn = document.getElementById('hamburgerBtn');
@@ -178,7 +234,7 @@ window.addEventListener("load", () => {
                 jumpTexts.forEach(text => {
                     text.classList.add("reveal-active");
                 });
-            }, 400);
+            }, 500);
 
             setTimeout(() => {
                 if(h1) h1.classList.add("reveal-now");
@@ -186,21 +242,21 @@ window.addEventListener("load", () => {
 
             setTimeout(() => {
                 if(typingDiv) typingDiv.classList.add("reveal-active");
-            }, 1100);
+            }, 1200);
 
             setTimeout(() => {
                 if(p) p.classList.add("reveal-active");
-            }, 1500);
+            }, 1600);
 
             setTimeout(() => {
                 if(socials) socials.classList.add("reveal-active");
-            }, 1800);
+            }, 1900);
 
             setTimeout(() => {
                 if(btns) btns.classList.add("reveal-active");
-            }, 2100);
+            }, 2200);
 
-        }, 400);
+        }, 500);
 
         setTimeout(() => {
             if(loader) loader.style.display = "none";
@@ -215,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Animation karanna ona hamama elements tika select karagannawa
     const animatedElements = document.querySelectorAll(
-        ".about-circle, .about-description, .about-content .btn, .about-content .title, .e-card, .grid-item, .orbit-system, .skill-box, .project-display, .bottom-content"
+        ".about-circle, .about-description, .about-content .btn, .about-content .title, .e-card, .grid-item, .orbit-system, .skill-box, .project-display, .bottom-content, .ex-card "
     );
 
     // Screen eke scroll karaddi elements penawada kiyala balanna "Observer" ekak hadanawa
@@ -237,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // --- SKILL BOXES & OTHER ELEMENTS MATHU VEEMA ---
-            if (entry.intersectionRatio > 0.01) {
+            if (entry.intersectionRatio > 0.02) {
                 entry.target.classList.add("show"); // Box eka fade-in wenawa
             }
 
@@ -266,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, {
         // Screen eke kora tharamatada meka weda karanna ona kiyala kiyanawa
-        threshold: [0.01, 0.2, 0.95]
+        threshold: [0.02, 0.2, 0.95]
     });
 
     // Ham element ekakatama observer eka connect karanawa
