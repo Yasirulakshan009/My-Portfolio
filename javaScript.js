@@ -124,60 +124,62 @@ document.querySelectorAll('.grid-item img').forEach(img => {
 });
 
 /*|||||||||||||||||||||||||||||||||||||||||exercise section||||||||||||||||||||||||||||||*/
+function openLab(btn) {
+    const htmlCode = btn.getAttribute('data-html') || "";
+    const cssCode = btn.getAttribute('data-css') || "";
+    const jsCode = btn.getAttribute('data-js') || "";
 
-const exercises = [
-    { id: 'ex1', title: 'Core Styling', desc: 'Comprehensive exploration of CSS box models, alignment strategies, and layout architecture.' },
-    { id: 'ex2', title: 'Glass Physics', desc: 'Advanced UI techniques utilizing backdrop-filters, dynamic blurs, and translucent layering.' },
-    { id: 'ex3', title: 'Typography Pro', desc: 'Implementing precise font-weight distributions and hierarchical text scaling for readability.' },
-    { id: 'ex4', title: 'Vector Shapes', desc: 'Crafting complex geometric interfaces and custom components using purely CSS drawing properties.' },
-    { id: 'ex5', title: 'Form Mechanics', desc: 'Developing modern, responsive input systems with focus state animations and clean validation UI.' },
-    { id: 'ex6', title: 'Motion Design', desc: 'High-performance keyframe animations featuring synchronized multi-element movement cycles.' }
-];
+    document.getElementById("html-code").textContent = htmlCode;
+    document.getElementById("css-code").textContent = cssCode;
+    document.getElementById("js-code").textContent = jsCode;
 
-const exerciseData = {
-    ex1: { html: '<div class="box">Ex 01</div>', css: '.box { padding: 40px; background: #8a2be2; color: white; border-radius: 15px; }', js: '' },
-    ex2: { html: '<div class="glass">Glass</div>', css: '.glass { padding: 30px; backdrop-filter: blur(10px); background: rgba(0,0,0,0.1); border-radius: 20px; }', js: '' },
-    ex3: { html: '<h1>Typography</h1>', css: 'h1 { font-weight: 300; letter-spacing: -1px; }', js: '' },
-    ex4: { html: '<div class="circle"></div>', css: '.circle { width: 50px; height: 50px; background: purple; border-radius: 50%; }', js: '' },
-    ex5: { html: '<input type="text" placeholder="Focus me">', css: 'input { padding: 10px; border-radius: 8px; border: 1px solid #ccc; outline: none; } input:focus { border-color: purple; }', js: '' },
-    ex6: { html: '<div class="move">🏎️</div>', css: '.move { font-size: 30px; animation: drive 2s infinite linear; position: relative; } @keyframes drive { from { left: 0; } to { left: 80%; } }', js: '' }
-};
+    document.getElementById("editor-view").classList.add("active");
 
-const gallery = document.getElementById('gallery-view');
-gallery.innerHTML = exercises.map(ex => `
-    <div class="ex-card">
-        <div class="card-content">
-            <span class="ex-badge">${ex.id.replace('ex', 'Exercise ')}</span>
-            <span class="ex-title">${ex.title}</span>
-            <span class="ex-desc">${ex.desc}</span>
-        </div>
-        <div class="card-footer">
-            <button class="ex-btn btn-github">GitHub</button>
-            <button class="ex-btn btn-preview" onclick="openLab('${ex.id}')">Preview</button>
-        </div>
-    </div>
-`).join('');
-
-function openLab(exId) {
-    const data = exerciseData[exId];
-    if (data) {
-        document.getElementById("html-code").textContent = data.html;
-        document.getElementById("css-code").textContent = data.css;
-        document.getElementById("js-code").textContent = data.js || "// No JS logic";
-        document.getElementById("editor-view").classList.add("active");
-        run();
-    }
+    updatePreview(htmlCode, cssCode, jsCode);
 }
 
-function closeLab() { document.getElementById("editor-view").classList.remove("active"); }
-
-function run() {
+function updatePreview(html, css, js) {
     const preview = document.getElementById("preview");
-    const html = document.getElementById("html-code").textContent;
-    const css = `<style>body{margin:0; padding:20px; font-family:sans-serif; background:#fff;}${document.getElementById("css-code").textContent}</style>`;
-    const js = `<script>${document.getElementById("js-code").textContent}<\/script>`;
-    preview.srcdoc = `<html><head>${css}</head><body>${html}${js}</body></html>`;
+    const fullStyle = `<style>body{margin:0; padding:20px; font-family:sans-serif;}${css}</style>`;
+    const fullScript = `<script>${js}<\/script>`;
+
+    // iframe එක ඇතුළත preview එක නිර්මාණය කිරීම
+    preview.srcdoc = `<html><head>${fullStyle}</head><body>${html}${fullScript}</body></html>`;
 }
+
+function closeLab() {
+    document.getElementById("editor-view").classList.remove("active");
+}
+
+/*|||||||||||||||||||contact section||||||||||||||||||||||||||*/
+
+document.querySelector('.contact-details').onsubmit = async (e) => {
+    e.preventDefault();
+
+    const btn = document.getElementById('send-btn');
+    const toast = document.getElementById('toast-notification');
+
+    btn.innerText = "Sending...";
+
+    const response = await fetch("https://formspree.io/f/xrervjen", {
+        method: "POST",
+        body: new FormData(e.target),
+        headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+        toast.classList.add('show');
+        e.target.reset();
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    } else {
+        alert("Oops! Something went wrong.");
+    }
+
+    btn.innerText = "Send Message";
+};
 
 /*||||||||||||||||||||||||||||||||||||hamburger nav bar |||||||||||||||||||||||||||||||||||||||||||||*/
 const btn = document.getElementById('hamburgerBtn');
@@ -293,7 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // --- SKILL BOXES & OTHER ELEMENTS MATHU VEEMA ---
-            if (entry.intersectionRatio > 0.02) {
+            if (entry.intersectionRatio > 0.1) {
                 entry.target.classList.add("show"); // Box eka fade-in wenawa
             }
 
@@ -322,7 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, {
         // Screen eke kora tharamatada meka weda karanna ona kiyala kiyanawa
-        threshold: [0.02, 0.2, 0.95]
+        threshold: [0.1, 0.2, 0.95]
     });
 
     // Ham element ekakatama observer eka connect karanawa

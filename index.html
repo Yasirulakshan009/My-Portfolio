@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Ramabhadra&family=Slabo+27px&display=swap" rel="stylesheet">
@@ -494,7 +495,491 @@
                     <h1 class="title">MY <span class="jump-text">Exercises</span></h1>
                 </div>
 
-                <div id="gallery-view"></div>
+                <div id="gallery-view">
+                    <div class="ex-card">
+                        <div class="card-content">
+                            <span class="ex-badge">Exercise 01</span>
+                            <span class="ex-title">Colorful Bento Grid Layout</span>
+                            <span class="ex-desc">A vibrant CSS Grid layout with spanning columns and rows, creating a dynamic, mosaic-style interface with varied block sizes.</span>
+                        </div>
+                        <div class="card-footer">
+                            <button class="ex-btn btn-github">GitHub</button>
+                            <button class="ex-btn btn-preview" onclick="openLab(this)"
+                                    data-html='<section>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</section>'
+                                    data-css='section{
+    width:100vw;
+    height:100vh;
+
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+
+section > div{
+    border:1px solid black;
+}
+
+
+
+section > div:nth-child(1){
+    background:red;
+    grid-column:1/3;
+}
+
+section > div:nth-child(2){
+    background:green;
+}
+
+section > div:nth-child(3){
+    background:orangered;
+    grid-column:4/5;
+    grid-row:1/4;
+}
+
+section > div:nth-child(4){
+    background:purple;
+}
+
+section > div:nth-child(5){
+    background:deeppink;
+}
+
+section > div:nth-child(6){
+    background:blue;
+}
+
+section > div:nth-child(7){
+    background:brown;
+}
+
+section > div:nth-child(8){
+    background:indigo;
+    grid-column:2/4;
+}'
+                                    data-js=''>Live Preview</button>
+                        </div>
+                    </div>
+
+                    <div class="ex-card">
+                        <div class="card-content">
+                            <span class="ex-badge">Exercise 02</span>
+                            <span class="ex-title">Sticky Header Stacking</span>
+                            <span class="ex-desc">A full-page scrolling layout where colorful section headers stick to the top and stack up as you scroll through different content blocks.</span>
+                        </div>
+                        <div class="card-footer">
+                            <button class="ex-btn btn-github">GitHub</button>
+                            <button class="ex-btn btn-preview" onclick="openLab(this)"
+                                    data-html='<section>
+    <header id="card1">Card 1</header>
+    <div>Hello</div>
+</section>
+
+<section>
+    <header id="card2">Card 2</header>
+    <div>how</div>
+</section>
+
+<section>
+    <header id="card3">Card 3</header>
+    <div>Are</div>
+</section>
+
+<section>
+    <header id="card4">Card 4</header>
+    <div>You ?</div>
+</section>
+'
+                                    data-css='body, html {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    background: rgb(246, 6, 6);
+    text-align: left;
+    font-size: 32px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+
+div {
+     font-size: 70px;
+     text-align: center;
+     margin: auto;
+
+     }
+
+
+     section:nth-of-type(1) {
+     background: #ffffff;
+     }
+     section:nth-of-type(2) {
+     background: #89cff4;
+     }
+     section:nth-of-type(3) {
+     background: #484a55;
+     }
+     section:nth-of-type(4) {
+     background: #ec2311;
+     }
+
+     #card1{
+     color: white;
+     background-color: #ec2311;
+     }
+
+     #card2{
+     color: white;
+     background-color: #07318f;
+     }
+
+     #card3{
+     color: white;
+     background-color: #03030c;
+     }
+
+     #card4{
+     color: white;
+     background-color: #300906;
+     }
+     '
+                                    data-js=''>Live Preview</button>
+                        </div>
+                    </div>
+
+                    <div class="ex-card">
+                        <div class="card-content">
+                            <span class="ex-badge">Exercise 03</span>
+                            <span class="ex-title">Geometric Grid Layout</span>
+                            <span class="ex-desc">A symmetric 2x2 grid design using vibrant colors and centered geometric layers to create a clean, modern abstract emblem.</span>
+                        </div>
+                        <div class="card-footer">
+                            <button class="ex-btn btn-github">GitHub</button>
+                            <button class="ex-btn btn-preview" onclick="openLab(this)"
+                                    data-html='<section>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <article></article>
+</section>
+'
+                                    data-css='body{
+    margin:0;
+}
+
+section{
+    width:100vw;
+    height:100vh;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows:repeat(2,1fr);
+    position:relative;
+}
+
+section > div:nth-child(1){
+    background:red;
+}
+
+section > div:nth-child(2){
+    background:green;
+}
+
+section > div:nth-child(3){
+    background:orange;
+}
+
+section > div:nth-child(4){
+    background:deeppink;
+}
+
+
+
+section > div{
+    position:relative;
+}
+
+section > div::after{
+    content:"";
+    width:150px;
+    height:150px;
+    background:white;
+    border-radius:50%;
+
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+
+section > div::before{
+    content:"";
+    width:60px;
+    height:60px;
+    background:red;
+
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index: 999;
+}
+
+article{
+    width:180px;
+    height:180px;
+    background:white;
+
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+
+article::after{
+    content:"";
+    width:100px;
+    height:100px;
+    background:red;
+    border-radius:50%;
+
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);}'
+                                    data-js=''>Live Preview</button>
+                        </div>
+                    </div>
+
+                    <div class="ex-card">
+                        <div class="card-content">
+                            <span class="ex-badge">Exercise 04</span>
+                            <span class="ex-title">Pulsating Ripple Effect</span>
+                            <span class="ex-desc">A smooth CSS pulsating ripple effect with expanding circular animations and elegant fades.</span>
+                        </div>
+                        <div class="card-footer">
+                            <button class="ex-btn btn-github">GitHub</button>
+                            <button class="ex-btn btn-preview" onclick="openLab(this)"
+                                    data-html='<section>
+    <div></div>
+</section>'
+                                    data-css='body{
+    margin:0;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+section:nth-child(1)>div{
+    width: 10px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    transition: 0.9s;
+    border: 2px solid purple;
+    animation-name: myAnimation;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin: auto;
+}
+
+
+@keyframes myAnimation {
+    from{
+        width: 10px;
+        aspect-ratio: 1/1;
+        opacity: 1;
+
+    }
+    to{
+        width: 150px;
+        aspect-ratio: 1/1;
+        opacity: 0;
+    }
+}'
+                                    data-js=''>Live Preview</button>
+                        </div>
+                    </div>
+
+                    <div class="ex-card">
+                        <div class="card-content">
+                            <span class="ex-badge">Exercise 05</span>
+                            <span class="ex-title">Dynamic Box Animation</span>
+                            <span class="ex-desc">A smooth CSS keyframe animation featuring a rotating box that travels along a defined rectangular path with alternate motion cycles.</span>
+                        </div>
+                        <div class="card-footer">
+                            <button class="ex-btn btn-github">GitHub</button>
+                            <button class="ex-btn btn-preview" onclick="openLab(this)"
+                                    data-html='<section>
+    <div ></div>
+</section>'
+                                    data-css='section{
+            width:1000px;
+            height:600px;
+            border:2px solid blue;
+
+        }
+        div{
+            width:140px;
+            height:100px;
+            background-color:red;
+            border-radius:5px;
+            animation-name: move;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @keyframes move {
+            0%{
+                margin-left:0;
+                margin-top:0;
+                rotate: 180deg;
+            }
+            25%{
+                margin-left:900px;
+                margin-top:0;
+                rotate: -180deg;
+            }
+            50%{
+                margin-left:900px;
+                margin-top:500px;
+                rotate: 180deg;
+            }
+            75%{
+                margin-left:0;
+                margin-top:500px;
+                rotate: -360deg;
+            }
+        }'
+                                    data-js=''>Live Preview</button>
+                        </div>
+                    </div>
+
+                    <div class="ex-card">
+                        <div class="card-content">
+                            <span class="ex-badge">Exercise 06</span>
+                            <span class="ex-title">Interactive Sidebar</span>
+                            <span class="ex-desc">Interactive glassmorphism sidebar with smooth hover-to-expand animations and vibrant purple gradients.</span>
+                        </div>
+                        <div class="card-footer">
+                            <button class="ex-btn btn-github">GitHub</button>
+                            <button class="ex-btn btn-preview" onclick="openLab(this)"
+                                    data-html='<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"><div class="sidebar">
+
+    <div class="menu-item">
+        <i class="fa-solid fa-user"></i>
+        <span>Menu One</span>
+
+    </div>
+
+    <div class="menu-item active">
+        <i class="fa-solid fa-truck-medical"></i>
+        <span>Menu Two</span>
+    </div>
+
+    <div class="menu-item">
+        <i class="fa-solid fa-globe"></i>
+        <span>Menu Three</span>
+    </div>
+
+    <div class="menu-item">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>Menu Four</span>
+    </div>
+
+    <div class="menu-item">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>Menu Five</span>
+    </div>
+
+</div>'
+                                    data-css='.menu-item {
+            display: flex;
+            align-items: center;
+            width: 60px;
+            height: 50px;
+            margin: 15px;
+            background: linear-gradient(45deg, #7b2ff7, #9d4edd);
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+
+        .menu-item i {
+            min-width: 60px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .menu-item span {
+            white-space: nowrap;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .menu-item:hover {
+            width: 200px;
+        }
+
+        .menu-item:hover span {
+            opacity: 1;
+        }
+
+        .menu-item.active span {
+            opacity: 1;
+        }
+
+        i{
+            display:block;
+        }'
+                                    data-js=''>Live Preview</button>
+                        </div>
+                    </div>
+                </div>
             </main>
         </section>
     </section>
@@ -552,7 +1037,7 @@
                 </div>
 
                 <div class="direct-contact">
-                    <a href="#" class="main-direct-contact ">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yasirulakshan009@gmail.com" target="_blank" class="main-direct-contact">
                         <div class="icon-circle"><i class="ri-mail-fill"></i></div>
                         <div class="icon-detail">
                             <h1 class="icon-title">Email</h1>
@@ -561,7 +1046,7 @@
 
                     </a>
 
-                    <a href="#" class="main-direct-contact">
+                    <a href="https://wa.me/94764061425?text=Hi%20Yasiru!%20I%20saw%20your%20portfolio%20and%20want%20to%20get%20in%20touch." target="_blank" class="main-direct-contact">
                         <div class="icon-circle"><i class="ri-whatsapp-fill"></i></div>
                         <div class="icon-detail">
                             <h1 class="icon-title">WhatsApp</h1>
@@ -574,47 +1059,52 @@
 
 
             <div class="contact-right">
-                <div class="contact-details">
+                <form action="https://formspree.io/f/xrervjen" method="POST"  class="contact-details">
+
                     <div class="input-row">
                         <div class="input-group">
-                            <input type="text" id="name" required>
+                            <input type="text" name="name" id="name" required>
                             <label>Full Name</label>
                         </div>
                         <div class="input-group">
-                            <input type="tel" id="number" required>
+                            <input type="tel" name="phone" id="number" required>
                             <label>Phone Number</label>
                         </div>
                     </div>
 
                     <div class="input-group">
-                        <input type="text" id="email" required>
+                        <input type="email" name="email" id="email" required>
                         <label for="email">Email</label>
                     </div>
 
                     <div class="input-group">
-                        <input type="text" id="subject" required>
+                        <input type="text" name="subject" id="subject" required>
                         <label for="subject">Subject</label>
                     </div>
 
                     <div class="input-group">
-                        <textarea id="message" required></textarea>
+                        <textarea name="message" id="message" required></textarea>
                         <label for="message">Message</label>
                     </div>
 
-                    <a href="#" class="main-btn project-btn" id="send-btn">Send Message</a>
-                </div>
+                    <div id="toast-notification" class="toast">Message Sent Successfully! ✅</div>
+
+                    <button type="submit" class="main-btn project-btn" id="send-btn" style="border: none; cursor: pointer;">
+                        Send Message
+                    </button>
+                </form>
             </div>
 
             <div class="mobile-only-content">
                 <div class="direct-contact-mobile">
-                    <a href="#" class="main-direct-contact">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yasirulakshan009@gmail.com" target="_blank" class="main-direct-contact">
                         <div class="icon-circle"><i class="ri-mail-fill"></i></div>
                         <div class="icon-detail">
                             <h1 class="icon-title">Email</h1>
                             <h1 class="icon-value">yasirulakshan009@gmail.com</h1>
                         </div>
                     </a>
-                    <a href="#" class="main-direct-contact">
+                    <a href="https://wa.me/94764061425?text=Hi%20Yasiru!%20I%20saw%20your%20portfolio%20and%20want%20to%20get%20in%20touch." target="_blank" class="main-direct-contact">
                         <div class="icon-circle"><i class="ri-whatsapp-fill"></i></div>
                         <div class="icon-detail">
                             <h1 class="icon-title">WhatsApp</h1>
