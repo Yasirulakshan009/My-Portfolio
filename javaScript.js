@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
 
-            // --- ORBIT SYSTEM (Screen eke 20% k penena kota) ---
+            //  ORBIT SYSTEM (Screen eke 20% k penena kota) ---
             if (entry.target.classList.contains('orbit-system')) {
                 if (entry.intersectionRatio >= 0.2 && !entry.target.classList.contains('show')) {
                     entry.target.classList.add("show"); // Orbit animation eka start karanawa
@@ -294,12 +294,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // --- SKILL BOXES & OTHER ELEMENTS MATHU VEEMA ---
+            //  SKILL BOXES & OTHER ELEMENTS MATHU VEEMA ---
             if (entry.intersectionRatio > 0.1) {
                 entry.target.classList.add("show"); // Box eka fade-in wenawa
             }
 
-            // --- PROGRESS BARS (Box eka 95% - 100% penena kota) ---
+            //  PROGRESS BARS (Box eka 95% - 100% penena kota) ---
             if (entry.intersectionRatio >= 0.95) {
                 const triggerVisuals = () => {
                     // Orbit eka iwara wenakan balan inna ona progress bars load wenna
@@ -316,7 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 triggerVisuals();
             }
 
-            // --- CARDS WAGE ANITH GENERAL ELEMENTS ---
+            //  CARDS WAGE ANITH GENERAL ELEMENTS ---
             if (entry.isIntersecting && !entry.target.classList.contains('skill-box') && !entry.target.classList.contains('orbit-system')) {
                 entry.target.classList.add("show");
                 scrollObserver.unobserve(entry.target);
