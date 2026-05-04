@@ -59,36 +59,28 @@ window.addEventListener("scroll", function() {
 /*|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 let currentIndex = 0;
-
-const slides = document.querySelectorAll(".project-display");
-const leftContents = document.querySelectorAll(".left-content");
-const rightContents = document.querySelectorAll(".right-content");
+const slides = document.querySelectorAll(".project-slide");
 const leftBtn = document.querySelector(".left-slide-btn");
 const rightBtn = document.querySelector(".right-slide-btn");
 
-function updateSlide(index) {
-    if (index < 0 || index >= slides.length) return;
+function updateSlide(newIndex) {
+    if (newIndex < 0 || newIndex >= slides.length) return;
 
-    currentIndex = index;
+    const allBtns = document.querySelectorAll(".slide-btn");
+    allBtns.forEach(btn => btn.classList.add("hidden"));
+
+    slides[currentIndex].classList.remove("active");
+    slides[currentIndex].classList.add("exit");
+
+    currentIndex = newIndex;
+
+    slides[currentIndex].classList.remove("exit");
+    slides[currentIndex].classList.add("active");
 
     setTimeout(() => {
-        [slides, leftContents, rightContents].forEach(list => {
-            list.forEach(item => item.classList.remove("active"));
-        });
-
-        slides[currentIndex].classList.add("active");
-        leftContents[currentIndex].classList.add("active");
-        rightContents[currentIndex].classList.add("active");
-
-        const activeImgContainer = slides[currentIndex].querySelector(".project-image");
-        if (activeImgContainer) {
-            activeImgContainer.style.animation = 'none';
-            activeImgContainer.offsetHeight;
-            activeImgContainer.style.animation = null;
-        }
-
+        allBtns.forEach(btn => btn.classList.remove("hidden"));
         updateButtonStyles();
-    }, 400);
+    }, 500);
 }
 
 function updateButtonStyles() {
@@ -109,6 +101,7 @@ leftBtn.addEventListener("click", (e) => {
     updateSlide(currentIndex - 1);
 });
 
+// මුලින්ම Button වල ස්ටයිල් නිවැරදි කිරීම
 document.addEventListener("DOMContentLoaded", () => {
     updateButtonStyles();
 });
