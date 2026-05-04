@@ -143,7 +143,6 @@ function updatePreview(html, css, js) {
     const fullStyle = `<style>body{margin:0; padding:20px; font-family:sans-serif;}${css}</style>`;
     const fullScript = `<script>${js}<\/script>`;
 
-    // iframe එක ඇතුළත preview එක නිර්මාණය කිරීම
     preview.srcdoc = `<html><head>${fullStyle}</head><body>${html}${fullScript}</body></html>`;
 }
 
@@ -268,24 +267,19 @@ window.addEventListener("load", () => {
 
 /*||||||||||||||||||||||||||||| scrol animation |||||||||||||||||||||||||||*/
 document.addEventListener("DOMContentLoaded", () => {
-    // Orbit eka iwara unada kiyala mathaka thiyaganna me variable eka ona wenawa
     let orbitFinished = false;
 
-    // Animation karanna ona hamama elements tika select karagannawa
     const animatedElements = document.querySelectorAll(
         ".about-circle, .about-description, .about-content .btn, .about-content .title, .e-card, .grid-item, .orbit-system, .skill-box, .project-display, .bottom-content, .ex-card "
     );
 
-    // Screen eke scroll karaddi elements penawada kiyala balanna "Observer" ekak hadanawa
     const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
 
-            //  ORBIT SYSTEM (Screen eke 20% k penena kota) ---
             if (entry.target.classList.contains('orbit-system')) {
                 if (entry.intersectionRatio >= 0.2 && !entry.target.classList.contains('show')) {
-                    entry.target.classList.add("show"); // Orbit animation eka start karanawa
+                    entry.target.classList.add("show");
 
-                    // Orbit eka thappara 1.5 kin iwarai kiyala mark karagannawa
                     setTimeout(() => {
                         orbitFinished = true;
                     }, 1500);
@@ -294,40 +288,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            //  SKILL BOXES & OTHER ELEMENTS MATHU VEEMA ---
             if (entry.intersectionRatio > 0.1) {
-                entry.target.classList.add("show"); // Box eka fade-in wenawa
+                entry.target.classList.add("show");
             }
 
-            //  PROGRESS BARS (Box eka 95% - 100% penena kota) ---
             if (entry.intersectionRatio >= 0.95) {
                 const triggerVisuals = () => {
-                    // Orbit eka iwara wenakan balan inna ona progress bars load wenna
                     if (orbitFinished) {
                         if (entry.target.id === "progress-bars-card" && !entry.target.classList.contains('start-bar')) {
                             entry.target.classList.add("start-bar");
                             scrollObserver.unobserve(entry.target);
                         }
                     } else {
-                        // Orbit eka thama iwara naththam thawa thappara 0.3 kin ayeth check karanawa
                         setTimeout(triggerVisuals, 300);
                     }
                 };
                 triggerVisuals();
             }
 
-            //  CARDS WAGE ANITH GENERAL ELEMENTS ---
             if (entry.isIntersecting && !entry.target.classList.contains('skill-box') && !entry.target.classList.contains('orbit-system')) {
                 entry.target.classList.add("show");
                 scrollObserver.unobserve(entry.target);
             }
         });
     }, {
-        // Screen eke kora tharamatada meka weda karanna ona kiyala kiyanawa
         threshold: [0.1, 0.2, 0.95]
     });
 
-    // Ham element ekakatama observer eka connect karanawa
     animatedElements.forEach(el => scrollObserver.observe(el));
 });
 
