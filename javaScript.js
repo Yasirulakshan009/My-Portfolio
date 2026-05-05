@@ -101,7 +101,6 @@ leftBtn.addEventListener("click", (e) => {
     updateSlide(currentIndex - 1);
 });
 
-// මුලින්ම Button වල ස්ටයිල් නිවැරදි කිරීම
 document.addEventListener("DOMContentLoaded", () => {
     updateButtonStyles();
 });
