@@ -69,8 +69,9 @@ display:flex;
 justify-content: center;
 padding:15px 50px;
 border-radius: 30px;
+border: 1px solid transparent;
 z-index: 20;
-transition: all 0.4s ease;
+transition: all 0.2s ease;
 
 
 
@@ -2595,6 +2596,15 @@ footer > hr {
 #exercises-colorbox2{ top:-150px; right:-150px; }
 #exercises-colorbox3{ bottom:-150px; left:-150px; }
 #exercises-colorbox4{ bottom:-150px; right:-150px; }
+#exercises-colorbox5{
+    top:100px;
+    left:200px;
+
+}
+#exercises-colorbox6{
+    top:100px;
+    right:200px;
+}
 @keyframes exercises-Blob{ 0%{transform: rotate(0);} 100%{transform: rotate(360deg);} }
 
 .exercises-main-container {
@@ -2765,7 +2775,7 @@ footer > hr {
     display: block;
     overflow-y: auto;
     padding: 20px 20px 0 20px;
-    transition: 0.2s ease-in;
+    transition: 0.4s ease-in;
     z-index: 9999;
 }
 #editor-view.active {
@@ -2801,12 +2811,11 @@ footer > hr {
     min-width: 320px;
     background: rgba(30, 30, 30, 0.8);
     backdrop-filter: blur(20px);
-    border-radius: 18px 18px 0 0;
+    border-radius: 18px 18px 18px 18px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     position: relative;
-    box-shadow: 0 0 15px 0 rgba(138, 43, 226, 0.5);
 }
 
 
@@ -2855,21 +2864,12 @@ pre {
     overflow: auto;
     background: transparent;
     color: #e0e0e0;
-    font-family: 'SF Mono', 'Fira Code', monospace;
     line-height: 1.6;
 }
 
 pre::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    height: 0;
 }
-
-pre::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-}
-
-
 
 #preview {
     width: 100%;
@@ -3911,8 +3911,6 @@ gap: 0;
     opacity: 1;
     transform: translateY(0);
 }
-
-
 
 .ex-card {
     opacity: 0;
