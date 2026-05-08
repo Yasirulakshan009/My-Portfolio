@@ -7,7 +7,9 @@
 
 html {
     scroll-behavior: smooth;
+
 }
+
 
 
 body {
@@ -38,7 +40,7 @@ overflow: hidden;
 
 .heroglass {
 
-width:98%;
+width:99%;
 height:98%;
 background: rgba(5, 0, 13, 0.4);
 border-radius: 16px;
@@ -652,8 +654,8 @@ align-items: center;
 }
 
 .skill-glass {
-width:98vw;
-height: auto;
+width:99%;
+height: 98%;
 position:relative;
 background: rgba(0, 0, 0, 0);
 border-radius: 16px;
@@ -668,6 +670,8 @@ padding-top:5%;
 margin-top:1%;
 margin-bottom:1%;
 }
+
+
 
 .skill-colorbox{
     height: 200px;
@@ -748,7 +752,7 @@ color: #fff;
     height: 80px;
     background:#000000;
     border-radius: 50%;
-    box-shadow:  0 0 10px #ffffff;
+    box-shadow:  0 0 10px #8a2be2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -777,7 +781,7 @@ color: #fff;
     background: conic-gradient(
         from 0deg,
         transparent 0%,
-        white 50%,
+        #8a2be2 50%,
         transparent 80%
     );
 
@@ -908,9 +912,10 @@ color: #fff;
     position: relative;
     width: 50px;
     height: 50px;
+    border: 1px solid rgba(138, 43, 226, 1);
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    background: #000000;
+    background-color: rgba(138, 43, 226, 0.1);
+    color: #8a2be2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1272,6 +1277,55 @@ padding: 100px 0;
     z-index: 10;
 }
 
+.e-grid-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+
+    background-image:
+            linear-gradient(to right, rgba(138, 43, 226, 0.15) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(138, 43, 226, 0.15) 1px, transparent 1px);
+    background-size: 50px 50px;
+    -webkit-mask-image: radial-gradient(circle at center, black 1%, transparent 80%);
+    mask-image: radial-gradient(circle at center, black 1%, transparent 80%);
+
+
+
+
+}
+
+.e-grid-box::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+
+    background-image:
+            linear-gradient(to right, rgba(138, 43, 226, 0.5) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(138, 43, 226, 0.5) 1px, transparent 1px);
+    background-size: 50px 50px;
+
+    -webkit-mask-image:
+            linear-gradient(to bottom, transparent 0%, black 15%, black 10%, transparent 40%),
+            radial-gradient(circle at center, black 10%, transparent 90%);
+    mask-image:
+            linear-gradient(to bottom, transparent 0%, black 15%, black 25%, transparent 40%),
+            radial-gradient(circle at center, black 20%, transparent 90%);
+
+    -webkit-mask-size: 100% 300%, 100% 100%;
+    mask-size: 100% 300%, 100% 100%;
+
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+
+    animation: gridFlow 5s linear infinite;
+}
+
+
 .education-content-wrapper {
     display: flex;
     justify-content: center;
@@ -1445,7 +1499,7 @@ overflow:hidden;
 
 .project-glass{
 height:98%;
-width:98%;
+width:99%;
 position:relative;
 background: rgba(255, 255, 255, 0);
 border-radius: 16px;
@@ -1517,13 +1571,13 @@ right:-150px;
 
 
     background-image:
-        linear-gradient(to right, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+            linear-gradient(to right, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
     background-size: 50px 50px;
 
 
-    -webkit-mask-image: radial-gradient(circle at center, black 1%, transparent 70%);
-    mask-image: radial-gradient(circle at center, black 1%, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle at center, black 1%, transparent 60%);
+    mask-image: radial-gradient(circle at center, black 1%, transparent 60%);
 
 }
 
@@ -2575,7 +2629,7 @@ footer > hr {
 }
 .exercises-glass {
     height: 98%;
-    width: 98%;
+    width: 99%;
     display: flex;
     flex-wrap: wrap;
     position:relative;
@@ -2637,7 +2691,7 @@ footer > hr {
 .ex-card {
     background: #000000;
     backdrop-filter: blur(25px);
-    height: 200px;
+    height: 220px;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
@@ -2892,7 +2946,7 @@ pre::-webkit-scrollbar {
 
 .nav-list > li > a {
        text-decoration: none;
-       font-size: 24px;
+       font-size: 20px;
        color: white;
        font-weight: 200;
     }
