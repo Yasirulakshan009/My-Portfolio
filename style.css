@@ -216,7 +216,10 @@ transform: translateX(-50%) scale(1.02);
 .grid-box::after {
     content: "";
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
     background-image:
         linear-gradient(to right, rgba(138, 43, 226, 0.8) 1px, transparent 1px),
@@ -230,8 +233,8 @@ transform: translateX(-50%) scale(1.02);
         linear-gradient(to bottom, transparent 0%, black 15%, black 25%, transparent 40%),
         radial-gradient(circle at center, black 20%, transparent 90%);
 
-    -webkit-mask-size: 100% 300%, 100% 100%;
-    mask-size: 100% 300%, 100% 100%;
+    -webkit-mask-size: 100% 200%, 100% 100%;
+    mask-size: 100% 200%, 100% 100%;
 
     -webkit-mask-composite: source-in;
     mask-composite: intersect;
@@ -1290,8 +1293,8 @@ padding: 100px 0;
 
 
     background-image:
-            linear-gradient(to right, rgba(138, 43, 226, 0.2) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(138, 43, 226, 0.2) 1px, transparent 1px);
+            linear-gradient(to right, rgba(138, 43, 226, 0.3) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(138, 43, 226, 0.3) 1px, transparent 1px);
     background-size: 50px 50px;
     -webkit-mask-image: radial-gradient(circle at center, black 1%, transparent 80%);
     mask-image: radial-gradient(circle at center, black 1%, transparent 80%);
@@ -1731,33 +1734,33 @@ scale:0.8;
 }
 
 .bottom-content {
-    width: 100%;
+    width: 80%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     min-height: 180px;
     position: absolute;
     bottom: 20px;
 }
 
 .right-content {
-    width:35%;
+    width:350px;
     position:relative;
     display:flex;
     flex-direction:column;
     justify-content:flex-start;
-    align-items: flex-end;
+    transform: translateX(350px);
     text-align: left;
     line-height: 1.6rem;
     font-size: 1rem;
     font-weight:300;
-    margin:0;
+    margin:0 100px;
     padding-bottom: 10px;
 
 
 }
 
 .left-content {
-    width:35%;
+    width:400px;
     position:relative;
     display:flex;
     flex-direction:column;
@@ -2981,24 +2984,24 @@ pre::-webkit-scrollbar {
 
 .content > h1 {
 line-height:1.5;
-font-size:3rem;
+font-size:2.5rem;
 }
 
     #typing-text, .cursor {
-     font-size: 4.5rem;
+     font-size: 3.5rem;
      }
 
 
 
     .content > .animated-text {
-        height: 6rem;
+        height: 4rem;
     }
     .content > .animated-text > ol > li {
         height: 6rem;
         line-height: 6rem;
     }
     .content > .animated-text > ol > li > span {
-        font-size: 4.5rem;
+        font-size: 3.5rem;
     }
     @keyframes slide-up {
         0%, 20% {
@@ -3019,7 +3022,7 @@ font-size:3rem;
     }
 
 .content > p {
-    font-size:1.5rem;
+    font-size:1.3rem;
     line-height:1.5;
     }
 
@@ -3117,7 +3120,115 @@ font-size:3rem;
         margin-bottom: 50px;
     }
 
- /*|||||||||||||||||||||||||||||||||||education section||||||||||||||||||||||||||||||||||||||||||||*/
+    .core {
+        width: 90px;
+        height: 90px;
+
+    }
+
+    .icon-wrapper >.icon {
+        width: 60px;
+        height: 60px;
+
+    }
+
+
+    .icon-name {
+        font-size: 12px;
+    }
+
+    #icon1 {
+        right: -20px;
+        top: 30px;
+    }
+    #icon2 {
+        left: -20px;
+        bottom: 30px;
+    }
+    #icon3 {
+        left: -30px;
+        top: 100px;
+    }
+    #icon4 {
+        right: -20px;
+        bottom: 100px;
+    }
+    #icon5 {
+        right: -30px;
+        top: 160px;
+    }
+    #icon6 {
+        left: -30px;
+        bottom: 160px;
+    }
+
+
+
+    .orbit1 {
+        width: 210px;
+        height: 210px;
+    }
+
+    .orbit2 {
+        width: 350px;
+        height: 350px;
+    }
+
+
+    .orbit3 {
+        width: 480px;
+        height: 480px;
+    }
+
+    #progress-bars-card {
+        margin:20px 20px 0px 0px ;
+
+    }
+
+    .skill-bar > .title {
+        font-size: 0.9rem;
+
+    }
+
+    .skill-bar > .bar {
+        height: 7px;
+    }
+
+
+
+    .small-crd-grid > .skill-box {
+        padding: 15px 0px 15px 20px;
+        text-align: left;
+        margin:20px 20px 0px 0px ;
+
+    }
+
+    .small-crd-grid > .skill-box > .box-title {
+        font-size:1.2rem;
+        line-height:2.5rem;
+
+
+    }
+
+    .small-crd-grid > .skill-box > .box-description {
+        font-size:1.1rem;
+    }
+
+
+    .status-crd-grid > .skill-box {
+        margin:20px 10px 20px 0px ;
+
+    }
+
+    .status-crd-grid > .skill-box > .box-description {
+        font-size:1.4rem;
+        line-height:2.5rem;
+
+
+    }
+
+
+    /*|||||||||||||||||||||||||||||||||||education section||||||||||||||||||||||||||||||||||||||||||||*/
 
 
  .e-card {
@@ -3142,7 +3253,16 @@ font-size:3rem;
      gap: 30px;
  }
 
+
+    .right-content {
+        transform: translateX(400px);
+        line-height: 1.7rem;
+        font-size: 1.1rem;
+    }
+
 }
+
+
 
 
 /*||||||||||||||||||||||||||||||||||||||||||||||||mobile||||||||||||||||||||||||||||||||||||||||*/
@@ -3482,6 +3602,7 @@ font-size:3rem;
     }
 
     .bottom-content {
+        width: 100%;
         height: auto;
         flex-direction: column;
         align-items: center;
@@ -3495,11 +3616,13 @@ font-size:3rem;
         width: 100%;
         align-items: center;
         text-align: center;
-gap: 0;
+        gap: 0;
     }
 
     .right-content {
         height: 250px;
+        transform: translateX(0);
+
     }
 
     .left-slide-btn, .right-slide-btn {
