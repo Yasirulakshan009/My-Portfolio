@@ -203,8 +203,8 @@ transform: translateX(-50%) scale(1.02);
 
 
     background-image:
-            linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            linear-gradient(to right, rgba(138, 43, 226, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(138, 43, 226, 0.1) 1px, transparent 1px);
         background-size: 50px 50px;
 
 
@@ -614,7 +614,7 @@ align-self: flex-start;
     border: 1px solid #8a2be2;
     overflow: hidden;
     z-index: 3;
-    box-shadow:0 0 10px #8a2be2;
+    box-shadow:0 0 40px #8a2be2;
     transition: all 0.4s;
 }
 
@@ -627,15 +627,17 @@ align-self: flex-start;
     transform: translateX(-50%);
     object-fit: cover;
     z-index: 3;
+
 }
 
 .about-circle:hover {
-box-shadow:
-        0 0 25px #8a2be2;
+    box-shadow: 0 0 50px #8a2be2;
+    scale: 1.02;
 }
 
+
 @keyframes floatImage {
-    0%, 100% { transform: translateY(0); }
+    0%, 100% { transform: translateY(20px); }
     50% { transform: translateY(-20px); }
 }
 
@@ -1278,8 +1280,8 @@ padding: 100px 0;
 }
 
 .e-grid-box {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 120%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1288,8 +1290,8 @@ padding: 100px 0;
 
 
     background-image:
-            linear-gradient(to right, rgba(138, 43, 226, 0.15) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(138, 43, 226, 0.15) 1px, transparent 1px);
+            linear-gradient(to right, rgba(138, 43, 226, 0.2) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(138, 43, 226, 0.2) 1px, transparent 1px);
     background-size: 50px 50px;
     -webkit-mask-image: radial-gradient(circle at center, black 1%, transparent 80%);
     mask-image: radial-gradient(circle at center, black 1%, transparent 80%);
@@ -1305,8 +1307,8 @@ padding: 100px 0;
     top: 0; left: 0; width: 100%; height: 100%;
 
     background-image:
-            linear-gradient(to right, rgba(138, 43, 226, 0.5) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(138, 43, 226, 0.5) 1px, transparent 1px);
+            linear-gradient(to right, rgba(138, 43, 226, 0.6) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(138, 43, 226, 0.6) 1px, transparent 1px);
     background-size: 50px 50px;
 
     -webkit-mask-image:
@@ -1561,8 +1563,8 @@ right:-150px;
 }
 
 .project-grid-box {
-    width: 100%;
-    height: 100%;
+    width: 150%;
+    height: 80%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1571,14 +1573,40 @@ right:-150px;
 
 
     background-image:
-            linear-gradient(to right, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+            linear-gradient(to right, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
     background-size: 50px 50px;
 
 
-    -webkit-mask-image: radial-gradient(circle at center, black 1%, transparent 60%);
-    mask-image: radial-gradient(circle at center, black 1%, transparent 60%);
+    -webkit-mask-image: radial-gradient(circle at center, black 1%, transparent 40%);
+    mask-image: radial-gradient(circle at center, black 1%, transparent 40%);
 
+}
+
+.project-grid-box::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+
+    background-image:
+            linear-gradient(to right, rgba(138, 43, 226, 0.6) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(138, 43, 226, 0.6) 1px, transparent 1px);
+    background-size: 50px 50px;
+
+    -webkit-mask-image:
+            linear-gradient(to bottom, transparent 0%, black 15%, black 10%, transparent 40%),
+            radial-gradient(circle at center, black 10%, transparent 90%);
+    mask-image:
+            linear-gradient(to bottom, transparent 0%, black 15%, black 25%, transparent 40%),
+            radial-gradient(circle at center, black 20%, transparent 90%);
+
+    -webkit-mask-size: 100% 300%, 100% 100%;
+    mask-size: 100% 300%, 100% 100%;
+
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+
+    animation: gridFlow 5s linear infinite;
 }
 
 
