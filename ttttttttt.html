@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Purple Neon Cursor</title>
+    <style>
+        * {
+            /* මුළු පිටුවේම සාමාන්‍ය මවුසය පෙනීම නතර කිරීමට */
+            cursor: none !important;
+        }
+
+        body {
+            background: radial-gradient(circle, #1a0633 0%, #05010d 100%);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            color: #d1a3ff;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        /* ⚓ ප්‍රධාන Cursor Head - දැන් මෙය විශාල සහ සම්පූර්ණයෙන්ම දම් පාටයි */
+        #comet-head {
+            position: fixed;
+            width: 18px; /* ප්‍රමාණය තවත් ලොකු කළා */
+            height: 18px;
+            background-color: #bc13fe; /* තද දීප්තිමත් දම් පාට */
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            /* තට්ටු කිහිපයක Glow එකක් ලබා දී ඇත */
+            box-shadow:
+                    0 0 15px #bc13fe,
+                    0 0 30px #9d50bb,
+                    0 0 45px #6e48aa;
+        }
+
+        /* ☄️ Trail Particles */
+        .comet-particle {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            background-color: #9d50bb;
+            box-shadow: 0 0 12px #bc13fe;
+            transform: translate(-50%, -50%);
+            transition: transform 0.7s cubic-bezier(0.1, 0.5, 0.3, 1), opacity 0.7s ease-out;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #bc13fe;
+            text-shadow: 0 0 20px rgba(188, 19, 254, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <h1>Solid Purple Glow</h1>
+    <p>දැන් මවුසය සම්පූර්ණයෙන්ම දම් පාටයි සහ ප්‍රමාණයෙන් විශාලයි.</p>
+</div>
+
+<!-- ⚓ Custom Cursor -->
+<div id="comet-head"></div>
+
+<script>
+    const head = document.getElementById('comet-head');
+
+    // මවුසය චලනය වන විට ක්‍රියාත්මක වන කොටස
+    document.addEventListener('mousemove', (e) => {
+        head.style.left = e.clientX + 'px';
+        head.style.top = e.clientY + 'px';
+
+        // Trail එක නිර්මාණය කිරීම
+        createParticle(e.clientX, e.clientY);
+    });
+
+    function createParticle(x, y) {
+        const particle = document.createElement('div');
+        particle.classList.add('comet-particle');
+
+        // අංශු වල ප්‍රමාණය සසම්භාවීව වෙනස් වේ
+        const size = Math.random() * 10 + 5 + 'px';
+        particle.style.width = size;
+        particle.style.height = size;
+
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+
+        document.body.appendChild(particle);
+
+        // අංශු විසිරී යන දුර ප්‍රමාණය
+        const destX = (Math.random() - 0.5) * 60;
+        const destY = (Math.random() - 0.5) * 60;
+
+        setTimeout(() => {
+            particle.style.transform = `translate(calc(-50% + ${destX}px), calc(-50% + ${destY}px)) scale(0)`;
+            particle.style.opacity = '0';
+        }, 10);
+
+        // තත්පර 0.8 කට පසු අංශු ඉවත් කරයි
+        setTimeout(() => {
+            particle.remove();
+        }, 800);
+    }
+</script>
+</body>
+</html>
