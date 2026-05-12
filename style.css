@@ -670,7 +670,7 @@ align-items: center;
 
 .skill-glass {
 width:99%;
-height: 98%;
+height: 100%;
 position:relative;
 background: rgba(0, 0, 0, 0);
 border-radius: 16px;
@@ -1689,6 +1689,27 @@ padding:0;
 scale:0.8;
 }
 
+.project-image::after {
+    content: "✨Hover to Explore System";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    background: black;
+    padding: 5px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 12px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px #8a2be2;
+    z-index: 100000;
+}
+
+.project-image:hover::after {
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
 .sub-image {
     position: absolute;
     top: 50%;
@@ -1704,7 +1725,7 @@ scale:0.8;
                     opacity 0.4s ease-in-out;
 }
 .sub-image > img {
-    width: 300px;
+    width: 320px;
     height: 200px;
     object-position: center;
     border-radius:20px;
@@ -3555,6 +3576,10 @@ font-size:2.5rem;
         scale:1;
     }
 
+    .project-image::after {
+        content: "️️↔️Swipe to Explore System";
+    }
+
     .sub-image {
         width: 250px;
 
@@ -3864,6 +3889,14 @@ font-size:2.5rem;
         display: flex;
         flex-direction: column;
         gap:50px;
+    }
+
+    #exercises-colorbox5{
+    display: none;
+    }
+    #exercises-colorbox6{
+        top:100px;
+        right:100px;
     }
 
 }
