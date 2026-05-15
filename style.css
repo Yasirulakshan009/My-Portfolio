@@ -1925,7 +1925,7 @@ scale:0.8;
     background: yellow;
 }
 
-#git-btn1 ,#git-btn2{
+#git-btn1 ,#git-btn2 ,#git-btn3 ,#git-btn4{
 margin-top:15px;
 font-weight:300;
 font-size:0.8rem;
@@ -3027,31 +3027,31 @@ pre::-webkit-scrollbar {
 
 .nav-list > li > a {
        text-decoration: none;
-       font-size: 20px;
+       font-size: 22px;
        color: white;
        font-weight: 200;
     }
 
 .content > h1 {
 line-height:1.5;
-font-size:2.5rem;
+font-size:2.6rem;
 }
 
     #typing-text, .cursor {
-     font-size: 3.5rem;
+     font-size: 3.6rem;
      }
 
 
 
     .content > .animated-text {
-        height: 4rem;
+        height: 4.1rem;
     }
     .content > .animated-text > ol > li {
         height: 6rem;
         line-height: 6rem;
     }
     .content > .animated-text > ol > li > span {
-        font-size: 3.5rem;
+        font-size: 3.6rem;
     }
     @keyframes slide-up {
         0%, 20% {
@@ -3072,7 +3072,7 @@ font-size:2.5rem;
     }
 
 .content > p {
-    font-size:1.3rem;
+    font-size:1.4rem;
     line-height:1.5;
     }
 
@@ -3111,8 +3111,8 @@ font-size:2.5rem;
 
 .main-btn{
     gap: 6px;
-    height: 45px;
-    width: 140px;
+    height: 47px;
+    width: 145px;
     border-radius: 14px;
     font-weight: 500;
     font-size: 1rem;
@@ -3161,7 +3161,7 @@ font-size:2.5rem;
 
 
     .orbit-system {
-        transform: scale(1.15);
+        transform: scale(2);
         justify-self: center;
     }
 
@@ -3171,14 +3171,19 @@ font-size:2.5rem;
     }
 
     .core {
-        width: 90px;
-        height: 90px;
+        width: 100px;
+        height: 100px;
 
     }
 
     .icon-wrapper >.icon {
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
+
+    }
+
+    .icon-wrapper >span >i {
+        font-size: 2rem;
 
     }
 
@@ -3189,7 +3194,7 @@ font-size:2.5rem;
 
     #icon1 {
         right: -20px;
-        top: 30px;
+        top: 20px;
     }
     #icon2 {
         left: -20px;
@@ -3212,22 +3217,48 @@ font-size:2.5rem;
         bottom: 160px;
     }
 
+    #icon7 {
+        right: -30px;
+        top: 300px;
+    }
+    #icon8 {
+        left: -30px;
+        bottom: 300px;
+    }
+
+    #icon9 {
+        left: 200px;
+        top: 510px;
+    }
+    #icon10 {
+        right: 200px;
+        bottom: 510px;
+    }
+
+    #icon11 {
+        right: -20px;
+        top: 120px;
+    }
+    #icon12 {
+        left: -10px;
+        bottom: 120px;
+    }
 
 
     .orbit1 {
-        width: 210px;
-        height: 210px;
+        width: 250px;
+        height: 250px;
     }
 
     .orbit2 {
-        width: 350px;
-        height: 350px;
+        width: 400px;
+        height: 400px;
     }
 
 
     .orbit3 {
-        width: 480px;
-        height: 480px;
+        width: 550px;
+        height: 550px;
     }
 
     #progress-bars-card {
@@ -3236,7 +3267,7 @@ font-size:2.5rem;
     }
 
     .skill-bar > .title {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
 
     }
 
@@ -3254,14 +3285,14 @@ font-size:2.5rem;
     }
 
     .small-crd-grid > .skill-box > .box-title {
-        font-size:1.1rem;
+        font-size:1.2rem;
         line-height:2.5rem;
 
 
     }
 
     .small-crd-grid > .skill-box > .box-description {
-        font-size:1rem;
+        font-size:1.1rem;
     }
 
 
@@ -3271,7 +3302,7 @@ font-size:2.5rem;
     }
 
     .status-crd-grid > .skill-box > .box-description {
-        font-size:1.2rem;
+        font-size:1.3rem;
         line-height:2.5rem;
 
 
