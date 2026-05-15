@@ -45,10 +45,10 @@ height:98%;
 background: rgba(5, 0, 13, 0.4);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(12px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 overflow: hidden;
 display: flex;
+    position: relative;
 
 }
 
@@ -63,7 +63,7 @@ display: flex;
 
 .navbar {
 position:fixed;
-top: 4%;
+top: 3%;
 left: 50%;
 transform: translateX(-50%);
 width:fit-content;
@@ -71,11 +71,12 @@ display:flex;
 justify-content: center;
 padding:15px 50px;
 border-radius: 30px;
-border: 1px solid transparent;
 z-index: 20;
 transition: all 0.2s ease;
-
-
+background: rgba(0, 0, 0, 0.5);
+border: 1px solid #8a2be2;
+box-shadow: 0 0 15px rgba(138, 43, 226, 0.3),
+inset 0 0 10px rgba(138, 43, 226, 0.1);
 
 }
 
@@ -85,26 +86,11 @@ transition: all 0.2s ease;
     list-style: none;
 }
 
-.navbar.scrolled {
-    background: rgba(5, 0, 13, 0.8);
-    border-radius: 30px;
-    box-shadow: 0 0 20px rgba(106, 13, 173, 0.4);
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: all 0.4s ease;
-    border: 2px solid #6a0dad;
-    transform: translateX(-50%) scale(1.02);
-}
 
 .navbar:hover {
-background: rgba(255, 255, 255, 0);
 border-radius: 30px;
-backdrop-filter: blur(7px);
--webkit-backdrop-filter: blur(7px);
-border: 1px solid #8a2be2;
-box-shadow: 0 0 15px rgba(138, 43, 226, 0.3),
+box-shadow: 0 0 25px rgba(138, 43, 226, 0.8),
 inset 0 0 10px rgba(138, 43, 226, 0.1);
-transform: translateX(-50%) scale(1.02);
 }
 
 .nav-list > li > a {
@@ -112,7 +98,7 @@ transform: translateX(-50%) scale(1.02);
     text-decoration: none;
     font-size: 16px;
     color: white;
-    font-weight: 200;
+    font-weight: 300;
 }
 
 
@@ -130,8 +116,7 @@ transform: translateX(-50%) scale(1.02);
 }
 
 .nav-list > li > a:hover{
-      color: #ffffff;
-      text-shadow:0 0 20px rgba(255,255,255,0.5);
+      color: #a367ff;
 }
 
 
@@ -675,8 +660,6 @@ position:relative;
 background: rgba(0, 0, 0, 0);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
-backdrop-filter: blur(15px);
--webkit-backdrop-filter: blur(8px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 overflow: hidden;
 display: flex;
@@ -892,26 +875,6 @@ color: #fff;
 }
 
 
-
-.orbit > .icon {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border: 1px solid white;
-    border-radius: 50%;
-    background: #000000;
-    box-shadow: 0 0 20px #8a2be2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8rem;
-    animation: inherit;
-    animation-direction: reverse;
-    z-index: 1;
-}
-
-
-
 .icon-wrapper {
     position: absolute;
     display: flex;
@@ -927,6 +890,7 @@ color: #fff;
     position: relative;
     width: 50px;
     height: 50px;
+    background: #000000;
     border: 1px solid rgba(138, 43, 226, 1);
     border-radius: 50%;
     box-shadow: 0 0 10px #8a2be2;
@@ -935,10 +899,6 @@ color: #fff;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
-    top: auto;
-    left: auto;
-    right: auto;
-    bottom: auto;
     z-index: 10;
 }
 
@@ -1292,7 +1252,7 @@ color:#aaa;
 /* --- Frontend Card Hover --- */
 .skill-content-wrapper:has(#frontend:hover) .icon.frontend-icon {
     border-color: #8a2be2;
-]    box-shadow: 0 0 15px #8a2be2;
+    box-shadow: 0 0 15px #8a2be2;
     color: #8a2be2;
 }
 
@@ -1324,12 +1284,12 @@ color:#aaa;
     color: #8a2be2;
 }
 
-.orbit, .orbit::after, .orbit .icon {
+.orbit, .orbit::after, .icon-wrapper .icon {
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
-.skill-content-wrapper:has(#frontend:hover, #backend:hover, #design:hover) .orbit::after {
+.skill-content-wrapper:has(#frontend:hover, #backend:hover, #design:hover, #frameworks:hover, #tools:hover) .orbit::after {
     opacity: 0.2;
     transition: opacity 0.4s ease;
 }
@@ -1422,10 +1382,9 @@ padding: 100px 0;
        position: relative;
        border-radius: 16px;
        box-shadow: 0 3px 10px -5px #8a2be2;
-       backdrop-filter: blur(9px);
-       -webkit-backdrop-filter: blur(9px);
        border: 1px solid rgba(255, 255, 255, 0.2);
        border-bottom: 1px solid #8a2be2;
+       background: black;
        display: flex;
        flex-direction: column;
        padding: 20px 20px;
@@ -1586,8 +1545,6 @@ position:relative;
 background: rgba(255, 255, 255, 0);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
-backdrop-filter: blur(15px);
--webkit-backdrop-filter: blur(8px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 display:flex;
 justify-content:center;
@@ -1881,9 +1838,9 @@ scale:0.8;
     border-left-color: white;
     border-right-color:white;
 
-    box-shadow:0px 0px 20px 5px white,
-                0px 0px 40px 10px white,
-                inset 0px 0px 15px #000000;
+    box-shadow:0 0 20px 5px white,
+                0 0 40px 10px white,
+                inset 0 0 15px #000000;
 
     z-index: 20;
     filter: blur(1px);
@@ -1925,7 +1882,7 @@ scale:0.8;
         background-position: 200% center;
     }
     100% {
-        background-position: 0% center;
+        background-position: 0 center;
     }
 }
 
@@ -2311,7 +2268,6 @@ filter: drop-shadow(0 0 4px white);
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
-    backdrop-filter: blur(5px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 }
@@ -2430,7 +2386,6 @@ filter: drop-shadow(0 0 4px white);
     padding: 15px 30px;
     border-radius: 50px;
     border: 1px solid #8a2be2;
-    backdrop-filter: blur(10px);
     box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 1000;
@@ -2764,7 +2719,6 @@ footer > hr {
     position:relative;
     background: rgba(0, 0, 0, 0); border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     overflow: hidden;
     padding-bottom: 50px;
@@ -2819,7 +2773,6 @@ footer > hr {
 
 .ex-card {
     background: #000000;
-    backdrop-filter: blur(25px);
     height: 220px;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -2993,7 +2946,6 @@ footer > hr {
     flex: 1;
     min-width: 320px;
     background: rgba(30, 30, 30, 0.8);
-    backdrop-filter: blur(20px);
     border-radius: 18px 18px 18px 18px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;

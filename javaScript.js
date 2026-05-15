@@ -32,30 +32,9 @@ function type() {
 
     setTimeout(type, typeSpeed);
 }
-/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
 document.addEventListener("DOMContentLoaded", type);
 
-window.addEventListener("scroll", function() {
-    const navbar = document.querySelector(".navbar");
-    const sections = document.querySelectorAll("section");
-    let isAtTop = false;
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const scrollPosition = window.scrollY;
-
-
-        if (scrollPosition >= sectionTop - 10 && scrollPosition <= sectionTop + 10) {
-            isAtTop = true;
-        }
-    });
-
-    if (isAtTop || window.scrollY < 10) {
-        navbar.classList.remove("scrolled");
-    } else {
-        navbar.classList.add("scrolled");
-    }
-});
 /*|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 let currentIndex = 0;
@@ -132,16 +111,16 @@ function openLab(btn) {
 
 function updatePreview(html, css, js) {
     const preview = document.getElementById("preview");
-    const fullStyle = `<style>body{margin:0; padding:20px; font-family:sans-serif;}${css}</style>`;
-    const fullScript = `<script>${js}<\/script>`;
 
-    preview.srcdoc = `<html><head>${fullStyle}</head><body>${html}${fullScript}</body></html>`;
+    const styleTag = `<style>${css}</style>`;
+    const scriptTag = `<script>${js}<\/script>`;
+
+    preview.srcdoc = `<html><head>${styleTag}</head><body>${html}${scriptTag}</body></html>`;
 }
 
 function closeLab() {
     document.getElementById("editor-view").classList.remove("active");
 }
-
 /*|||||||||||||||||||contact section||||||||||||||||||||||||||*/
 
 document.querySelector('.contact-details').onsubmit = async (e) => {
@@ -328,3 +307,4 @@ document.querySelectorAll('.project-display').forEach(box => {
         }
     };
 });
+
